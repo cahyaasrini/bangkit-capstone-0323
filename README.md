@@ -1,1 +1,0 @@
-# bangkit-capstone-0323
