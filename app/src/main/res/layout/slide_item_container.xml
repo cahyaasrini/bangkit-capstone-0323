@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="15dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/image_slider"
@@ -17,28 +17,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_repeatCount="20"
         app:lottie_loop="false"
+        app:lottie_repeatCount="20"
         app:lottie_speed="1" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Title Text"
         android:gravity="center"
-        android:textStyle="bold"/>
+        android:text="Title Text"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        android:text="Description"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:maxLines="3"
+        android:text="Description"
+        android:textSize="14sp"
+        android:textStyle="italic" />
 
 </LinearLayout>

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             ),
             IntroSliderData(
                 "Tujuan",
-                "Mempermudah proses pencarian obat dengan merekomendasikan obat sesuai dengan kebutuhan dan indikasi yang dialami pengguna",
+                "Merekomendasikan obat sesuai dengan kebutuhan dan indikasi yang dialami pengguna",
                 R.raw.purpose
             )
         )
