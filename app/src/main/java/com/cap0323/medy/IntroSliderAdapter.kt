@@ -1,7 +1,9 @@
 package com.cap0323.medy
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.cap0323.medy.databinding.SlideItemContainerBinding
 

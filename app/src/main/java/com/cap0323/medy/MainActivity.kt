@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
     }
 
     private fun setupIndicator() {
