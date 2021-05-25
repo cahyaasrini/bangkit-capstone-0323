@@ -47,6 +47,10 @@ def get_med_data(med_url):
 
       try:
         details = soup.find_all('div', {'class': 'fr-view health-insurance__details'})[0].find_all(['h1', 'h2', 'h3', 'h4', 'p', 'li', 'ul'])
+        # if we include the tags, we need to add more tag like div' and 'span' 
+        # we actually can do it without defining the tags, but if we don't do it the text will have no space between another that makes preprocessing more tricky. 
+        # tricky is no problem its just about the downside that we choose  
+        
         med_details = ' / '.join([elm.text for elm in details])
       except: 
         med_details = 'empty'
