@@ -16,7 +16,7 @@ From 20k records, we filter it based on our needs (and limitations):
    - **acne** (104 records), 
    - **cough** (390 records), and 
    - **diarrhea** (69 records) 
-   with the total of 598. 
+   with the total of 563. 
 
 The notebook is provided along with final dataset we use for this project. 
 
