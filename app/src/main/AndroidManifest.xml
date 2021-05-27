@@ -18,9 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeSelectionActivity" />
+        <activity android:name=".ui.typeselection.TypeSelectionActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
-            android:name=".MainActivity"
+            android:name="com.cap0323.medy.ui.opening.MainActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>

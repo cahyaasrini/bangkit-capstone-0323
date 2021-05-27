@@ -1,4 +1,4 @@
-package com.cap0323.medy
+package com.cap0323.medy.ui.opening
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.cap0323.medy.R
+import com.cap0323.medy.data.IntroSliderData
 import com.cap0323.medy.databinding.ActivityMainBinding
+import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -55,15 +58,17 @@ class MainActivity : AppCompatActivity() {
                 if (sliderViewPager.currentItem + 1 < introSliderAdapter.itemCount) {
                     sliderViewPager.currentItem += 1
                 } else {
-                    Intent(applicationContext, HomeSelectionActivity::class.java).also {
+                    Intent(applicationContext, TypeSelectionActivity::class.java).also {
                         startActivity(it)
+                        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
                     }
                 }
             }
         }
         binding.tvSkip.setOnClickListener {
-            Intent(applicationContext, HomeSelectionActivity::class.java).also {
+            Intent(applicationContext, TypeSelectionActivity::class.java).also {
                 startActivity(it)
+                overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
             }
         }
 

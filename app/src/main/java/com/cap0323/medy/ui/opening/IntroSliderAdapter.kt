@@ -1,10 +1,9 @@
-package com.cap0323.medy
+package com.cap0323.medy.ui.opening
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.cap0323.medy.data.IntroSliderData
 import com.cap0323.medy.databinding.SlideItemContainerBinding
 
 class IntroSliderAdapter(private val introSlider: List<IntroSliderData>) :

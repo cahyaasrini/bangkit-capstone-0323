@@ -1,4 +1,4 @@
-package com.cap0323.medy
+package com.cap0323.medy.data
 
 data class IntroSliderData(
     val title: String,
