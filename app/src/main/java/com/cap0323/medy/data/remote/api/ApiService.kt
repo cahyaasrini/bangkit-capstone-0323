@@ -8,6 +8,11 @@ import retrofit2.http.Path
 interface ApiService {
     @GET("medicine/{medicine_name}")
     fun getMedicineByName(
-        @Path("name") name: String
+            @Path("medicine_name") name: String
+    ): Call<MedicineResponse>
+
+    @GET("medicine/{all}")
+    fun getAllMedicine(
+            @Path("all") all: String
     ): Call<MedicineResponse>
 }
