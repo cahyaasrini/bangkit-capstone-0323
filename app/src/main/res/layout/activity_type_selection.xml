@@ -76,7 +76,7 @@
                         android:contentDescription="@string/indication" />
 
                     <Button
-                        android:id="@+id/btn_type_med"
+                        android:id="@+id/btn_type_indication"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/color_btn"
@@ -114,7 +114,7 @@
                         android:contentDescription="@string/medicine" />
 
                     <Button
-                        android:id="@+id/btn_type_indication"
+                        android:id="@+id/btn_type_med"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/color_btn"

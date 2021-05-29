@@ -4,4 +4,7 @@
     <string name="selection_choosing">Pilih type searching !</string>
     <string name="medicine">Medicine</string>
     <string name="indication">Indication</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Masukan nama obat dicari..</string>
+    <string name="announcement">Announcement</string>
 </resources>

@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Medy">
-        <activity android:name=".SplashScreenActivity"
+        <activity android:name=".ui.medicine.MedicineActivity"></activity>
+        <activity android:name=".ui.indication.IndicationActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -18,13 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.typeselection.TypeSelectionActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
-            android:name="com.cap0323.medy.ui.opening.MainActivity"
+            android:name=".ui.typeselection.TypeSelectionActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".ui.opening.MainActivity"
             android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
 
 </manifest>

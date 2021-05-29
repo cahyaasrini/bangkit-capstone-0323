@@ -15,5 +15,6 @@
     <color name="red_700">#c2185b</color>
     <color name="ic_launcher_new_background">#F4F4F4</color>
     <color name="placeholder">#6FB6B6B6</color>
+    <color name="primary">#E2919191</color>
     <color name="background">#2DB6B6B6</color>
 </resources>

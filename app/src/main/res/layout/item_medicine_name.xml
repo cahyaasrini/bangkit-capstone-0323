@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_item_course"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:cardMaxElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/tv_brand_name"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_showDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textColor="@color/teal_200"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/category"
+            app:layout_constraintEnd_toEndOf="@+id/category"
+            app:layout_constraintStart_toStartOf="@+id/category"
+            app:layout_constraintTop_toTopOf="@+id/category"
+            tools:text="date" />
+
+        <ImageView
+            android:id="@+id/category"
+            android:layout_width="98dp"
+            android:layout_height="31dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="124dp"
+            android:src="@drawable/date_indicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.932"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="6dp"
+            android:rotation="270"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_dropdown" />
+
+        <TextView
+            android:id="@+id/tv_showName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/avenir_bold"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="@string/medicine"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_brand_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+
+        <TextView
+            android:id="@+id/tv_effective_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/category"
+            app:layout_constraintStart_toEndOf="@+id/tv_brand_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_showName"
+            tools:text="12-12-2019" />
+
+        <TextView
+            android:id="@+id/tv_showDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/avenir_regular"
+            app:layout_constraintBottom_toBottomOf="@+id/category"
+            app:layout_constraintEnd_toEndOf="@+id/category"
+            app:layout_constraintStart_toStartOf="@+id/category"
+            app:layout_constraintTop_toTopOf="@+id/category"
+            tools:text="@string/app_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
