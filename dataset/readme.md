@@ -15,8 +15,3 @@ We collect the [Human Drug Label dataset](https://open.fda.gov/data/downloads/) 
   ((cont))
 
 
-## Our Dataset 
-
-[here](https://www.kaggle.com/cahyaasrini/openfda-human-otc-drug-labels) 
-
-((cont))
