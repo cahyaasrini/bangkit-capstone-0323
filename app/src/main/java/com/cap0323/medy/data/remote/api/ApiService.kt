@@ -9,7 +9,7 @@ interface ApiService {
     @GET("medicine/{medicine_name}")
     fun getMedicineByName(
         @Path("medicine_name") name: String
-    ): Call<MedicineResponse>
+    ): Call<List<MedicineResponse>>
 
     @GET("medicine/{all}")
     fun getAllMedicine(

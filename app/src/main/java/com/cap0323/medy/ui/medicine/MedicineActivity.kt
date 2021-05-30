@@ -23,13 +23,26 @@ class MedicineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMedicineBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setUpRecylerView()
-        displayingAllData()
+
+        medicineViewModel.getQuery("")
+        medicineViewModel.getQueryLive.observe(this, { query ->
+            if (query != "") {
+                medicineViewModel.getMedicineByName(query)
+                medicineViewModel.medicineListByName.observe(
+                    this@MedicineActivity,
+                    { medicine ->
+                        adapter.setMedicineByName(medicine)
+                    })
+            } else {
+                displayingAllData()
+            }
+        })
 
         medicineViewModel.isLoading.observe(this, {
             if (it) {
                 binding.apply {
+                    rvMedicine.visibility = View.GONE
                     shimmer.visibility = View.VISIBLE
                     shimmer.startShimmer()
                 }
@@ -68,17 +81,19 @@ class MedicineActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 if (newText.isEmpty()) {
-                    binding.rvMedicine.visibility = View.GONE
+                    displayingAllData()
                 } else {
+
                     medicineViewModel.getMedicineByName(newText)
                     medicineViewModel.getQuery(newText)
                     medicineViewModel.medicineListByName.observe(
                         this@MedicineActivity,
                         { medicine ->
-                            if (medicine != null) {
-                                Log.d("Output", medicine.toString())
+                            Log.d("Hasil", medicine.toString())
+                            if (medicine.isNotEmpty()) {
                                 adapter.setMedicineByName(medicine)
                             } else {
+                                binding.rvMedicine.visibility = View.GONE
                                 Toast.makeText(
                                     this@MedicineActivity,
                                     "Data Not Found",

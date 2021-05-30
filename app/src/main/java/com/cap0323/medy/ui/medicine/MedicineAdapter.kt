@@ -18,9 +18,9 @@ class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>
         notifyDataSetChanged()
     }
 
-    fun setMedicineByName(medicine: MedicineResponse) {
+    fun setMedicineByName(medicine: List<MedicineResponse>) {
         this.listMedicine.clear()
-        this.listMedicine.addAll(listOf(medicine))
+        this.listMedicine.addAll(medicine)
         notifyDataSetChanged()
     }
 

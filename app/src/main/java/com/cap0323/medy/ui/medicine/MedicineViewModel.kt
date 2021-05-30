@@ -13,8 +13,8 @@ import retrofit2.Response
 
 class MedicineViewModel() : ViewModel() {
 
-    private val _medicineListByName = MutableLiveData<MedicineResponse>()
-    val medicineListByName: LiveData<MedicineResponse> = _medicineListByName
+    private val _medicineListByName = MutableLiveData<List<MedicineResponse>>()
+    val medicineListByName: LiveData<List<MedicineResponse>> = _medicineListByName
 
     private val _medicineList = MutableLiveData<List<MedicineResponse>>()
     val medicineList: LiveData<List<MedicineResponse>> = _medicineList
@@ -23,7 +23,12 @@ class MedicineViewModel() : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    fun isLoading(status: Boolean) {
+        _isLoading.postValue(status)
+    }
+
     private val _getQuery = MutableLiveData<String>()
+
     val getQueryLive: LiveData<String> = _getQuery
 
     fun getQuery(query: String) {
@@ -33,10 +38,10 @@ class MedicineViewModel() : ViewModel() {
     fun getMedicineByName(name: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getMedicineByName(name)
-        client.enqueue(object : Callback<MedicineResponse> {
+        client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
-                call: Call<MedicineResponse>,
-                response: Response<MedicineResponse>
+                call: Call<List<MedicineResponse>>,
+                response: Response<List<MedicineResponse>>
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
@@ -46,7 +51,7 @@ class MedicineViewModel() : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<MedicineResponse>, t: Throwable) {
+            override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
@@ -63,7 +68,6 @@ class MedicineViewModel() : ViewModel() {
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-
                     _medicineList.value = response.body()
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
