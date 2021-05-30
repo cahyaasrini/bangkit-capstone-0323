@@ -47,30 +47,30 @@
             android:layout_height="31dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="124dp"
+            android:layout_marginStart="36dp"
             android:src="@drawable/date_indicator"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/image_brand"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.932"
+            app:layout_constraintVertical_bias="0.921"
             tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
             android:rotation="270"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_dropdown"
             android:contentDescription="@string/medicine" />
 
-
         <TextView
             android:id="@+id/tv_showName"
-            android:layout_width="wrap_content"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -78,7 +78,7 @@
             android:ellipsize="end"
             android:fontFamily="@font/avenir_bold"
             android:gravity="start"
-            android:maxLines="2"
+            android:maxLines="3"
             android:text="@string/medicine"
             android:textColor="@color/black"
             android:textSize="16sp"

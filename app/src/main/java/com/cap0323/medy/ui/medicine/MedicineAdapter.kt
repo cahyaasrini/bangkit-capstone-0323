@@ -1,6 +1,7 @@
 package com.cap0323.medy.ui.medicine
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,13 @@ import com.cap0323.medy.ui.detail.DetailActivity
 class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>() {
     private val listMedicine = ArrayList<MedicineResponse>()
 
-    fun setMedicine(medicine: MedicineResponse) {
+    fun setMedicine(medicine: List<MedicineResponse>) {
+        this.listMedicine.clear()
+        this.listMedicine.addAll(medicine)
+        notifyDataSetChanged()
+    }
+
+    fun setMedicineByName(medicine: MedicineResponse) {
         this.listMedicine.clear()
         this.listMedicine.addAll(listOf(medicine))
         notifyDataSetChanged()
@@ -35,6 +42,7 @@ class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>
     class MedicineViewHolder(val binding: ItemMedicineNameBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(medicine: MedicineResponse) {
+            Log.d("Testing",medicine.toString())
             with(binding) {
                 tvShowName.text = medicine.brandName
                 tvEffectiveTime.text = medicine.effectiveTime

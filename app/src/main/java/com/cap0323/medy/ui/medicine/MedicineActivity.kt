@@ -3,6 +3,7 @@ package com.cap0323.medy.ui.medicine
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
@@ -24,17 +25,11 @@ class MedicineActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpRecylerView()
-
-//        medicineViewModel.getQueryLive.observe(this, { query ->
-//            if (query != null) {
-//                medicineViewModel.getMedicineByName(query)
-//            }
-//        })
+        displayingAllData()
 
         medicineViewModel.isLoading.observe(this, {
             if (it) {
                 binding.apply {
-                    rvMedicine.visibility = View.GONE
                     shimmer.visibility = View.VISIBLE
                     shimmer.startShimmer()
                 }
@@ -73,7 +68,7 @@ class MedicineActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 if (newText.isEmpty()) {
-                   binding.rvMedicine.visibility = View.GONE
+                    binding.rvMedicine.visibility = View.GONE
                 } else {
                     medicineViewModel.getMedicineByName(newText)
                     medicineViewModel.getQuery(newText)
@@ -81,9 +76,9 @@ class MedicineActivity : AppCompatActivity() {
                         this@MedicineActivity,
                         { medicine ->
                             if (medicine != null) {
-                                adapter.setMedicine(medicine)
+                                Log.d("Output", medicine.toString())
+                                adapter.setMedicineByName(medicine)
                             } else {
-                                binding.rvMedicine.visibility = View.GONE
                                 Toast.makeText(
                                     this@MedicineActivity,
                                     "Data Not Found",
@@ -96,5 +91,12 @@ class MedicineActivity : AppCompatActivity() {
             }
         })
         return true
+    }
+
+    private fun displayingAllData() {
+        medicineViewModel.getAllMedicine("all")
+        medicineViewModel.medicineList.observe(this, { med ->
+            adapter.setMedicine(med)
+        })
     }
 }

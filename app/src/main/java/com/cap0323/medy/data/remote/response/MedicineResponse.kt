@@ -19,7 +19,7 @@ data class MedicineResponse(
         val effectiveTime: String? = null,
 
         @field:SerializedName("id")
-        val id: String? = null,
+        var id: String? = null,
 
         @field:SerializedName("inactive_ingredient")
         val inactiveIngredient: String? = null,
@@ -32,3 +32,5 @@ data class MedicineResponse(
         @field:SerializedName("warnings")
         val warnings: String? = null,
 )
+
+
