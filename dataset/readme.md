@@ -13,3 +13,10 @@ We collect the [Human Drug Label dataset](https://open.fda.gov/data/downloads/) 
 2. Data Cleansing 
   
   ((cont))
+
+
+## Our Dataset 
+
+[here](https://www.kaggle.com/cahyaasrini/openfda-human-otc-drug-labels) 
+
+((cont))
