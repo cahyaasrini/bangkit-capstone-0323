@@ -15,4 +15,9 @@ interface ApiService {
     fun getAllMedicine(
         @Path("all") all: String
     ): Call<List<MedicineResponse>>
+
+    @GET("details/{id}")
+    fun getMedicineById(
+        @Path("id") id: String
+    ): Call<List<MedicineResponse>>
 }
