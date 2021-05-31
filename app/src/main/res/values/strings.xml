@@ -7,4 +7,6 @@
     <string name="search">Search</string>
     <string name="search_hint">Masukan nama obat dicari..</string>
     <string name="announcement">Announcement</string>
+    <string name="image">Image Medicine</string>
+    <string name="image_medicine_recommendation">Image Medicine Recommendation</string>
 </resources>

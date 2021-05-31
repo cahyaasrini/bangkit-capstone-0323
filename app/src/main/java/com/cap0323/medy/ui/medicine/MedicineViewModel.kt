@@ -23,10 +23,6 @@ class MedicineViewModel() : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun isLoading(status: Boolean) {
-        _isLoading.postValue(status)
-    }
-
     private val _getQuery = MutableLiveData<String>()
 
     val getQueryLive: LiveData<String> = _getQuery
@@ -35,8 +31,13 @@ class MedicineViewModel() : ViewModel() {
         _getQuery.postValue(query)
     }
 
+    private val _noData = MutableLiveData<Boolean>()
+
+    val noData: LiveData<Boolean> = _noData
+
     fun getMedicineByName(name: String) {
         _isLoading.value = true
+        _noData.value = false
         val client = ApiConfig.getApiService().getMedicineByName(name)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
@@ -45,20 +46,28 @@ class MedicineViewModel() : ViewModel() {
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _medicineListByName.value = response.body()
+                    if (response.body().isNullOrEmpty()) {
+                        _noData.value = true
+                    } else {
+                        _medicineListByName.value = response.body()
+                        _noData.value = false
+                    }
                 } else {
+                    _noData.value = false
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
                 _isLoading.value = false
+                _noData.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
     }
 
     fun getAllMedicine(all: String) {
+        _noData.value = false
         _isLoading.value = true
         val client = ApiConfig.getApiService().getAllMedicine(all)
         client.enqueue(object : Callback<List<MedicineResponse>> {
@@ -68,14 +77,21 @@ class MedicineViewModel() : ViewModel() {
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _medicineList.value = response.body()
+                    if (response.body().isNullOrEmpty()) {
+                        _noData.value = true
+                    } else {
+                        _medicineList.value = response.body()
+                        _noData.value = false
+                    }
                 } else {
+                    _noData.value = false
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
                 _isLoading.value = false
+                _noData.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })

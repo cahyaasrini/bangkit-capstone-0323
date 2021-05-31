@@ -62,11 +62,11 @@
             android:layout_height="32dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
+            android:contentDescription="@string/medicine"
             android:rotation="270"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_dropdown"
-            android:contentDescription="@string/medicine" />
+            app:srcCompat="@drawable/ic_dropdown" />
 
         <TextView
             android:id="@+id/tv_showName"
@@ -110,10 +110,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:drawablePadding="2dp"
-            android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@color/white"
             android:fontFamily="@font/avenir_regular"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/category_image"
             app:layout_constraintEnd_toEndOf="@+id/category_image"
             app:layout_constraintStart_toStartOf="@+id/category_image"

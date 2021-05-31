@@ -16,14 +16,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
+
             <include layout="@layout/shimmer_item_medicine_name" />
 
         </LinearLayout>
@@ -31,6 +40,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_medicine"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -41,4 +51,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_medicine_name" />
+
+    <include
+        android:id="@+id/no_data"
+        layout="@layout/dialog_no_data"
+        android:visibility="gone"
+        android:elevation="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

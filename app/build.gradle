@@ -79,4 +79,10 @@ dependencies {
 
     // Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //    // Expandable cardView
+    //    compile 'com.alespero:expandable-cardview:0.8'
+    //
+    //    // Expandable text view
+    //    implementation 'tm.charlie.androidlib:expandable-textview:2.0.0'
 }

@@ -3,10 +3,8 @@ package com.cap0323.medy.ui.medicine
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -32,7 +30,7 @@ class MedicineActivity : AppCompatActivity() {
                 medicineViewModel.medicineListByName.observe(
                     this@MedicineActivity,
                     { medicine ->
-                        adapter.setMedicineByName(medicine)
+                        adapter.setMedicine(medicine)
                     })
             } else {
                 displayingAllData()
@@ -54,6 +52,20 @@ class MedicineActivity : AppCompatActivity() {
                 }
             }
         })
+
+        binding.noData.btnOk.setOnClickListener {
+            displayingAllData()
+            binding.noData.noDataDialog.visibility = View.GONE
+        }
+        medicineViewModel.noData.observe(this, {
+            if (it) {
+                binding.noData.noDataDialog.visibility = View.VISIBLE
+                binding.rvMedicine.visibility = View.GONE
+            } else {
+                binding.noData.noDataDialog.visibility = View.GONE
+                binding.rvMedicine.visibility = View.VISIBLE
+            }
+        })
     }
 
     private fun setUpRecylerView() {
@@ -73,34 +85,27 @@ class MedicineActivity : AppCompatActivity() {
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.queryHint = resources.getString(R.string.search_hint)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                return false
+                medicineViewModel.getMedicineByName(query)
+                medicineViewModel.getQuery(query)
+                medicineViewModel.medicineListByName.observe(
+                    this@MedicineActivity,
+                    { medicine ->
+                        if (medicine.isNotEmpty()) {
+                            adapter.setMedicine(medicine)
+                        } else {
+                            binding.rvMedicine.visibility = View.GONE
+                        }
+                    })
+                return true
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
                 if (newText.isEmpty()) {
                     displayingAllData()
-                } else {
-
-                    medicineViewModel.getMedicineByName(newText)
-                    medicineViewModel.getQuery(newText)
-                    medicineViewModel.medicineListByName.observe(
-                        this@MedicineActivity,
-                        { medicine ->
-                            Log.d("Hasil", medicine.toString())
-                            if (medicine.isNotEmpty()) {
-                                adapter.setMedicineByName(medicine)
-                            } else {
-                                binding.rvMedicine.visibility = View.GONE
-                                Toast.makeText(
-                                    this@MedicineActivity,
-                                    "Data Not Found",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        })
+                    dataNotFound("gone")
                 }
                 return true
             }
@@ -114,4 +119,12 @@ class MedicineActivity : AppCompatActivity() {
             adapter.setMedicine(med)
         })
     }
+
+    private fun dataNotFound(status: String) {
+        when (status) {
+            "visible" -> binding.noData.noDataDialog.visibility = View.VISIBLE
+            "gone" -> binding.noData.noDataDialog.visibility = View.GONE
+        }
+    }
+
 }

@@ -18,12 +18,6 @@ class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>
         notifyDataSetChanged()
     }
 
-    fun setMedicineByName(medicine: List<MedicineResponse>) {
-        this.listMedicine.clear()
-        this.listMedicine.addAll(medicine)
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -42,12 +36,11 @@ class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>
     class MedicineViewHolder(val binding: ItemMedicineNameBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(medicine: MedicineResponse) {
-            Log.d("Testing",medicine.toString())
+            Log.d("Testing", medicine.toString())
             with(binding) {
                 tvShowName.text = medicine.brandName
                 tvEffectiveTime.text = medicine.effectiveTime
                 category.text = medicine.category
-
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.idMedicine, medicine.id)
