@@ -24,9 +24,9 @@ class MedicineActivity : AppCompatActivity() {
         setUpRecylerView()
 
         medicineViewModel.getQuery("")
-        medicineViewModel.getQueryLive.observe(this, { query ->
-            if (query != "") {
-                medicineViewModel.getMedicineByName(query)
+        medicineViewModel.getQueryLive.observe(this, {
+            if (it != "") {
+                medicineViewModel.getMedicineByName(it)
                 medicineViewModel.medicineListByName.observe(
                     this@MedicineActivity,
                     { medicine ->
@@ -53,19 +53,19 @@ class MedicineActivity : AppCompatActivity() {
             }
         })
 
-        binding.noData.btnOk.setOnClickListener {
-            displayingAllData()
-            binding.noData.noDataDialog.visibility = View.GONE
-        }
         medicineViewModel.noData.observe(this, {
             if (it) {
-                binding.noData.noDataDialog.visibility = View.VISIBLE
-                binding.rvMedicine.visibility = View.GONE
+                dataNotFound("visible")
+                binding.rvMedicine.visibility = View.INVISIBLE
             } else {
-                binding.noData.noDataDialog.visibility = View.GONE
-                binding.rvMedicine.visibility = View.VISIBLE
+                dataNotFound("gone")
             }
         })
+
+        binding.noData.btnOk.setOnClickListener {
+            displayingAllData()
+            dataNotFound("gone")
+        }
     }
 
     private fun setUpRecylerView() {
@@ -92,9 +92,9 @@ class MedicineActivity : AppCompatActivity() {
                 medicineViewModel.getQuery(query)
                 medicineViewModel.medicineListByName.observe(
                     this@MedicineActivity,
-                    { medicine ->
-                        if (medicine.isNotEmpty()) {
-                            adapter.setMedicine(medicine)
+                    { it ->
+                        if (it.isNotEmpty()) {
+                            adapter.setMedicine(it)
                         } else {
                             binding.rvMedicine.visibility = View.GONE
                         }
@@ -126,5 +126,4 @@ class MedicineActivity : AppCompatActivity() {
             "gone" -> binding.noData.noDataDialog.visibility = View.GONE
         }
     }
-
 }

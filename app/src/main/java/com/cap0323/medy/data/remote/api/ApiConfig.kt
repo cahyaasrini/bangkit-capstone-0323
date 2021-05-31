@@ -16,7 +16,7 @@ interface ApiConfig {
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://medy-api.herokuapp.com/")
+                .baseUrl("https://medy-315402.et.r.appspot.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

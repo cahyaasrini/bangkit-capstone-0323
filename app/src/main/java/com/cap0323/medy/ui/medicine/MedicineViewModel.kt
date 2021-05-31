@@ -59,16 +59,14 @@ class MedicineViewModel() : ViewModel() {
             }
 
             override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
-                _isLoading.value = false
-                _noData.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
     }
 
     fun getAllMedicine(all: String) {
-        _noData.value = false
         _isLoading.value = true
+        _noData.value = false
         val client = ApiConfig.getApiService().getAllMedicine(all)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
@@ -90,8 +88,6 @@ class MedicineViewModel() : ViewModel() {
             }
 
             override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
-                _isLoading.value = false
-                _noData.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
