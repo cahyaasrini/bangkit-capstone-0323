@@ -1,14 +1,14 @@
-# About *medy*
+## About *medy*
 
 ((cont))
 
-# Our Dataset 
+## Our Dataset 
 
 We publish our dataset on kaggle [here](https://www.kaggle.com/cahyaasrini/openfda-human-otc-drug-labels). 
 
 ((cont))
 
-# api: medy-api 
+## API: medy-api 
 
 Running in [heroku](https://medy-api.herokuapp.com/) and [gcloud](https://medy-315402.et.r.appspot.com). 
 
