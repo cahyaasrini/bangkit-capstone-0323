@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">Medy</string>
     <string name="tag_line">your medicine app recommender</string>
-    <string name="selection_choosing">Pilih type searching !</string>
+    <string name="selection_choosing">Select search type !</string>
     <string name="medicine">Medicine</string>
     <string name="indication">Indication</string>
     <string name="search">Search</string>
-    <string name="search_hint">Masukan nama obat dicari..</string>
+    <string name="search_hint">Enter the name of the drug you\'re looking for ..</string>
     <string name="announcement">Announcement</string>
     <string name="image">Image Medicine</string>
     <string name="image_medicine_recommendation">Image Medicine Recommendation</string>
+    <string name="dataNotFound">Currently the data you are looking for is not found !</string>
 </resources>
