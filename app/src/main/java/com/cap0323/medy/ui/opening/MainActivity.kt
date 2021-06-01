@@ -20,18 +20,18 @@ class MainActivity : AppCompatActivity() {
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
             IntroSliderData(
-                "List Obat",
-                "Menampilkan variasi obat yang tepat sesuai dengan kebutuhan pengguna",
+                "List of Drugs",
+                "Display the right variety of drugs according to the needs of the user",
                 R.raw.medicine2
             ),
             IntroSliderData(
-                "Pengguna",
-                "Aplikasi ini dapat digunakan oleh berbagai kalangan baik masyarakat umum atau pihak kesehatan",
+                "User",
+                "This application can be used by various circles either the general public or health authorities",
                 R.raw.worker2
             ),
             IntroSliderData(
-                "Tujuan",
-                "Merekomendasikan obat sesuai dengan kebutuhan dan indikasi yang dialami pengguna",
+                "Purpose",
+                "Recommend the drug according to the needs and indications experienced by the user",
                 R.raw.purpose
             )
         )
