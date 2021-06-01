@@ -66,13 +66,14 @@
                 android:contentDescription="@string/app_name"
                 android:src="@color/teal_200"
                 android:translationZ="20dp"
+                android:layout_marginTop="10dp"
                 app:layout_collapseMode="pin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.046"
+                app:layout_constraintVertical_bias="0.011"
                 tools:src="@color/teal_200" />
 
             <TextView
@@ -171,29 +172,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="205dp"
-                android:fontFamily="@font/avenir_bold"
+                android:layout_marginTop="200dp"
+                android:fontFamily="@font/avenir_medium"
                 android:text="Effective Time"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/date"
                 app:layout_constraintEnd_toEndOf="@+id/tv_medicine"
                 app:layout_constraintStart_toStartOf="@+id/tv_medicine"
                 app:layout_constraintTop_toTopOf="@+id/tv_medicine"
                 tools:text="Effective Time" />
+
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/avenir_medium"
+                android:fontFamily="@font/avenir_bold"
                 android:text="2019-12-4"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/active_ingredient_title"
                 app:layout_constraintEnd_toEndOf="@+id/date_title"
                 app:layout_constraintStart_toStartOf="@+id/date_title"
-                app:layout_constraintTop_toBottomOf="@+id/date_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_medicine"
+                app:layout_constraintVertical_bias="0.7"
                 tools:text="2019-12-4" />
 
             <TextView
@@ -201,7 +202,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="12dp"
                 android:fontFamily="@font/avenir_bold"
                 android:text="Active Ingredient"

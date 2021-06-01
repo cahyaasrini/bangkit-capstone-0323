@@ -71,7 +71,7 @@ class MedicineActivity : AppCompatActivity() {
     private fun setUpRecylerView() {
         binding.apply {
             rvMedicine.layoutManager = LinearLayoutManager(this@MedicineActivity)
-            adapter = MedicineAdapter()
+            adapter = MedicineAdapter(this@MedicineActivity)
             rvMedicine.adapter = adapter
         }
     }

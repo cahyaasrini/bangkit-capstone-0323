@@ -1,15 +1,19 @@
 package com.cap0323.medy.ui.medicine
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ItemMedicineNameBinding
 import com.cap0323.medy.ui.detail.DetailActivity
 
-class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>() {
+class MedicineAdapter(private val context: Context) :
+    RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>() {
     private val listMedicine = ArrayList<MedicineResponse>()
 
     fun setMedicine(medicine: List<MedicineResponse>) {
@@ -29,6 +33,19 @@ class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>
 
     override fun onBindViewHolder(holder: MedicineViewHolder, position: Int) {
         holder.bind(listMedicine[position])
+        holder.binding.imageBrand.startAnimation(
+            AnimationUtils.loadAnimation(
+                context,
+                R.anim.fade_transition_animation
+            )
+        )
+        holder.itemView.startAnimation(
+            AnimationUtils.loadAnimation(
+                context,
+                R.anim.fade_scale_animation
+            )
+        )
+
     }
 
     override fun getItemCount(): Int = listMedicine.size

@@ -1,5 +1,6 @@
 package com.cap0323.medy.ui.detail
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +35,12 @@ class DetailAdapter : RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
                 tvBrandName.text = medicine.brandName
                 tvCategory.text = medicine.category
                 tvDate.text = medicine.effectiveTime
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra(DetailActivity.idMedicine, medicine.id)
+                    intent.putExtra(DetailActivity.categoryName, medicine.category)
+                    itemView.context.startActivity(intent)
+                }
             }
         }
     }
