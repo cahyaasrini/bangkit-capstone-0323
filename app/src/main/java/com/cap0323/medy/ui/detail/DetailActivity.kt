@@ -1,15 +1,15 @@
 package com.cap0323.medy.ui.detail
 
-import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ActivityDetailBinding
-import com.cap0323.medy.ui.medicine.MedicineAdapter
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -25,6 +25,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        statusBarColor()
         setUpRecylerView()
         viewModel()
 
@@ -45,6 +46,10 @@ class DetailActivity : AppCompatActivity() {
                         indication.text = data.indicationsAndUsage
                         dosageAdministration.text = data.dosageAndAdministration
                         warning.text = data.warnings
+                        collapsingToolbar.title = getString(R.string.app_name)
+                        collapsingToolbar.setExpandedTitleTextColor(getColorStateList(R.color.white))
+                        collapsingToolbar.setCollapsedTitleTextColor(getColor(R.color.white))
+                        collapsingToolbar.setContentScrimColor(getColor(R.color.color_btn))
                     }
                 }
             }
@@ -77,14 +82,23 @@ class DetailActivity : AppCompatActivity() {
         binding.apply {
             val orientation = resources.configuration.orientation
 
-            rvDetailMedicine.layoutManager = LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = DetailAdapter()
+            rvDetailMedicine.layoutManager =
+                LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DetailAdapter(this@DetailActivity)
             rvDetailMedicine.adapter = adapter
         }
     }
 
-
     private fun observeDetail() {
 
+    }
+
+    private fun statusBarColor() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            val window = this.window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = this.resources.getColor(R.color.color_btn)
+        }
     }
 }

@@ -1,14 +1,17 @@
 package com.cap0323.medy.ui.detail
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
-import com.cap0323.medy.databinding.ActivityDetailBinding
 import com.cap0323.medy.databinding.ItemsMedicineRecommendationBinding
 
-class DetailAdapter : RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
+class DetailAdapter(private val context: Context) :
+    RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
     private val detail = ArrayList<MedicineResponse>()
 
     fun setRecommendation(medicine: List<MedicineResponse>) {
@@ -19,12 +22,24 @@ class DetailAdapter : RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailViewHolder {
         val itemsMedicineRecommendationBinding =
-            ItemsMedicineRecommendationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemsMedicineRecommendationBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         return DetailViewHolder(itemsMedicineRecommendationBinding)
     }
 
-    override fun onBindViewHolder(holder: DetailViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
         holder.bind(detail[position])
+        holder.binding.tvMovieImage.startAnimation(
+            AnimationUtils.loadAnimation(
+                context,
+                R.anim.fragment_open_enter
+            )
+        )
+    }
+
 
     override fun getItemCount(): Int = detail.size
 

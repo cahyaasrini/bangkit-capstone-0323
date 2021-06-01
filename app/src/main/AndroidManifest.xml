@@ -13,26 +13,28 @@
         <activity
             android:name=".ui.detail.DetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
         <activity
             android:name=".ui.medicine.MedicineActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ui.indication.IndicationActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.indication.IndicationActivity" />
-        <activity
-            android:name=".SplashScreenActivity"
-            android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".ui.typeselection.TypeSelectionActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        </activity>
         <activity
             android:name=".ui.opening.MainActivity"
             android:noHistory="true"

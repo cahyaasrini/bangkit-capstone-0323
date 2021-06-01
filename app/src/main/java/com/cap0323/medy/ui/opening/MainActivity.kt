@@ -1,8 +1,11 @@
 package com.cap0323.medy.ui.opening
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         binding.sliderViewPager.adapter = introSliderAdapter
 
         setupIndicator()

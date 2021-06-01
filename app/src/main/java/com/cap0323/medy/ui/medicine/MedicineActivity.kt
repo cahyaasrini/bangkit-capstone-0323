@@ -2,9 +2,11 @@ package com.cap0323.medy.ui.medicine
 
 import android.app.SearchManager
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -21,6 +23,7 @@ class MedicineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMedicineBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        statusBarColor()
         setUpRecylerView()
 
         medicineViewModel.getQuery("")
@@ -124,6 +127,15 @@ class MedicineActivity : AppCompatActivity() {
         when (status) {
             "visible" -> binding.noData.noDataDialog.visibility = View.VISIBLE
             "gone" -> binding.noData.noDataDialog.visibility = View.GONE
+        }
+    }
+
+    private fun statusBarColor() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            val window = this.window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = this.resources.getColor(R.color.color_btn)
         }
     }
 }
