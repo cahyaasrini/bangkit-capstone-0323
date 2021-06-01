@@ -20,4 +20,11 @@ interface ApiService {
     fun getMedicineById(
         @Path("id") id: String
     ): Call<List<MedicineResponse>>
+
+    @GET("category/{category}")
+    fun getRecommendation(
+        @Path("category") category: String
+    ): Call<List<MedicineResponse>>
+
+
 }

@@ -44,6 +44,7 @@ class MedicineAdapter : RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder>
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.idMedicine, medicine.id)
+                    intent.putExtra(DetailActivity.categoryName, medicine.category)
                     itemView.context.startActivity(intent)
                 }
             }

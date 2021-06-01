@@ -1,12 +1,15 @@
 package com.cap0323.medy.ui.detail
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ActivityDetailBinding
+import com.cap0323.medy.ui.medicine.MedicineAdapter
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -15,12 +18,14 @@ class DetailActivity : AppCompatActivity() {
 
     companion object {
         const val idMedicine = "extra_id_medicine"
+        const val categoryName = "category_name"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpRecylerView()
         viewModel()
 
         detailViewModel.detailMedicine.observe(this, {
@@ -32,7 +37,6 @@ class DetailActivity : AppCompatActivity() {
                 for (data in listMedicine) {
                     with(binding) {
                         tvBrandName.text = data.brandName
-                        data.brandName?.let { it1 -> Log.d("Testing", it1) }
                         tvPurpose.text = data.purpose
                         category.text = data.category
                         date.text = data.effectiveTime
@@ -45,18 +49,40 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         })
+
+        detailViewModel.recommendationMedicine.observe(this, {
+            if (it != null) {
+                Log.d("data yang masuk", it.toString())
+                adapter.setRecommendation(it)
+            }
+        })
     }
 
     private fun viewModel() {
         val extras = intent.extras
         if (extras != null) {
             val idMedicine = extras.getString(idMedicine)
-            Log.d("Test", idMedicine.toString())
+            val categoryName = extras.getString(categoryName)
             if (idMedicine != null) {
                 detailViewModel.getDetailMedicine(idMedicine)
             }
+            if (categoryName != null) {
+                detailViewModel.getRecommendation(categoryName)
+            }
+            Log.d("Testingfromhome", categoryName.toString())
         }
     }
+
+    private fun setUpRecylerView() {
+        binding.apply {
+            val orientation = resources.configuration.orientation
+
+            rvDetailMedicine.layoutManager = LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DetailAdapter()
+            rvDetailMedicine.adapter = adapter
+        }
+    }
+
 
     private fun observeDetail() {
 

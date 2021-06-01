@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="4dp"
     android:layout_marginRight="4dp"
+    android:orientation="horizontal"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
@@ -21,6 +22,7 @@
             android:layout_height="150dp"
             android:contentDescription="@string/image_medicine_recommendation"
             android:scaleType="centerCrop"
+            android:src="@color/teal_200"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,11 +52,12 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="50dp"
             android:src="@drawable/date_indicator"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/image_brand"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.675"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_movieImage"
+            app:layout_constraintEnd_toEndOf="@+id/tv_movieImage"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="@+id/tv_movieImage"
+            app:layout_constraintTop_toTopOf="@+id/tv_movieImage"
+            app:layout_constraintVertical_bias="0.932"
             tools:ignore="ContentDescription" />
 
         <TextView

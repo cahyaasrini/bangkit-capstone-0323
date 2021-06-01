@@ -167,21 +167,33 @@
                 tools:text="Acne" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/date_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="205dp"
                 android:fontFamily="@font/avenir_bold"
+                android:text="Effective Time"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/date"
+                app:layout_constraintEnd_toEndOf="@+id/tv_medicine"
+                app:layout_constraintStart_toStartOf="@+id/tv_medicine"
+                app:layout_constraintTop_toTopOf="@+id/tv_medicine"
+                tools:text="Effective Time" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/avenir_medium"
                 android:text="2019-12-4"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/active_ingredient_title"
-                app:layout_constraintEnd_toEndOf="@+id/tv_medicine"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="@+id/tv_medicine"
-                app:layout_constraintTop_toTopOf="@+id/tv_medicine"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintEnd_toEndOf="@+id/date_title"
+                app:layout_constraintStart_toStartOf="@+id/date_title"
+                app:layout_constraintTop_toBottomOf="@+id/date_title"
                 tools:text="2019-12-4" />
 
             <TextView
@@ -189,7 +201,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="80dp"
                 android:layout_marginEnd="12dp"
                 android:fontFamily="@font/avenir_bold"
                 android:text="Active Ingredient"
@@ -405,15 +417,54 @@
                 app:layout_constraintTop_toBottomOf="@+id/warning_title"
                 tools:text="Directions cleanse the skin thoroughly before applying cover the entire affected area with a thin layer leave on for 10 minutes thoroughly remove with water because excessive drying of the skin may occur, start with one application daily, then gradually increase to two to three times daily if needed or as directed by a doctor if bothersome dryness or peeling occurs, reduce application to once a day or every other day" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@color/placeholder"
+                app:layout_anchorGravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/recommendation"
+                app:layout_constraintTop_toBottomOf="@+id/warning"
+                tools:layout_editor_absoluteX="4dp" />
+
+            <TextView
+                android:id="@+id/recommendation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/avenir_bold"
+                android:text="Similar Medicine Recommendation"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/warning"
+                tools:text="Indication and Usage" />
+
+            <TextView
+                android:id="@+id/recommendation_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/avenir_regular"
+                android:text="Sorted by top 10 similar medicines"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recommendation"
+                tools:text="Indication and Usage" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_detailMedicine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="12dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/warning" />
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/recommendation_detail"
+                tools:listitem="@layout/items_medicine_recommendation" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
