@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ActivityDetailBinding
-import com.cap0323.medy.ui.typeCategory.BottomSheetAdapter
+import com.cap0323.medy.ui.typeCategory.BottomSheetCategoryAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class DetailActivity : AppCompatActivity() {
@@ -113,20 +113,23 @@ class DetailActivity : AppCompatActivity() {
         binding.apply {
             val orientation = resources.configuration.orientation
 
-            rvDetailMedicine.layoutManager =
-                LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = DetailAdapter(this@DetailActivity)
-
             if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
                 binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 2)
             } else {
                 binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 3)
             }
             binding.btmSheet.rvBtmSheet.setHasFixedSize(true)
+
             adapterBottomSheet = BottomSheetAdapter(this@DetailActivity)
 
-            rvDetailMedicine.adapter = adapter
             btmSheet.rvBtmSheet.adapter = adapter
+
+
+            rvDetailMedicine.layoutManager =
+                LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DetailAdapter(this@DetailActivity)
+
+            rvDetailMedicine.adapter = adapter
         }
     }
 

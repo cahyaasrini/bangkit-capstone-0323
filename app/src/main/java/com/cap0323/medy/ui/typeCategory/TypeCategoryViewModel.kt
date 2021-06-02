@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.cap0323.medy.data.local.entity.TypeCategoryEntity
+import com.cap0323.medy.data.local.source.DummyData
 import com.cap0323.medy.data.remote.api.ApiConfig
 import com.cap0323.medy.data.remote.response.CategoryResponse
 import retrofit2.Call
@@ -12,8 +14,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TypeCategoryViewModel() : ViewModel() {
+
     private val _indicationByChar = MutableLiveData<List<CategoryResponse>>()
     val indicationByChar: LiveData<List<CategoryResponse>> = _indicationByChar
+
+    private val _categoryListAll = MutableLiveData<List<CategoryResponse>>()
+    val categoryListAll: LiveData<List<CategoryResponse>> = _categoryListAll
+
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -58,4 +65,6 @@ class TypeCategoryViewModel() : ViewModel() {
             }
         })
     }
+
+    fun getAllCategory() : ArrayList<TypeCategoryEntity> = DummyData.getTypeCategory()
 }

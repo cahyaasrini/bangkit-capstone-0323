@@ -1,4 +1,4 @@
-package com.cap0323.medy.ui.typeCategory
+package com.cap0323.medy.ui.detail
 
 import android.content.Context
 import android.content.Intent

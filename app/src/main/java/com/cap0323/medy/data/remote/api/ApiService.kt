@@ -27,7 +27,6 @@ interface ApiService {
         @Path("category") category: String
     ): Call<List<MedicineResponse>>
 
-
     @GET("keywords/{keyword}")
     fun getIndicationByChar(
         @Path("keyword") keyword: String

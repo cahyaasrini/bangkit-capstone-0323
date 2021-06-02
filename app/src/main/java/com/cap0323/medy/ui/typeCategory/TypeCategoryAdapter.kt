@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.cap0323.medy.R
-import com.cap0323.medy.data.remote.response.CategoryResponse
+import com.cap0323.medy.data.local.entity.TypeCategoryEntity
 import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
-import com.cap0323.medy.ui.detail.DetailActivity
 
-class TypeCategoryAdapter(private val context: Context) :
-    RecyclerView.Adapter<TypeCategoryAdapter.CategoryViewHolder>() {
-    private val listCategory = ArrayList<CategoryResponse>()
+class TypeCategoryAdapter(private val context: Context) : RecyclerView.Adapter<TypeCategoryAdapter.CategoryViewHolder>() {
 
-    fun setCategory(category: List<CategoryResponse>) {
+    private val listCategory = ArrayList<TypeCategoryEntity>()
+
+
+    fun setCategory(category: ArrayList<TypeCategoryEntity>) {
         this.listCategory.clear()
         this.listCategory.addAll(category)
         notifyDataSetChanged()
@@ -32,12 +32,12 @@ class TypeCategoryAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.bind(listCategory[position])
-        holder.binding.categoryImage.startAnimation(
-            AnimationUtils.loadAnimation(
-                context,
-                R.anim.fade_transition_animation
-            )
-        )
+//        holder.binding.categoryImage.startAnimation(
+//            AnimationUtils.loadAnimation(
+//                context,
+//                R.anim.fade_transition_animation
+//            )
+//        )
         holder.itemView.startAnimation(
             AnimationUtils.loadAnimation(
                 context,
@@ -51,13 +51,12 @@ class TypeCategoryAdapter(private val context: Context) :
 
     class CategoryViewHolder(val binding: ItemMedicineCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(category: CategoryResponse) {
-            with(binding) {
-                tvCategory.text = category.toString()
+        fun bind(category: TypeCategoryEntity) {
+            binding.apply {
+                tvCategory.text = category.abjadCategory
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailActivity::class.java)
-//                    intent.putExtra(DetailActivity.idMedicine, category.id)
-//                    intent.putExtra(DetailActivity.categoryName, category.category)
+                    val intent = Intent(itemView.context, TypeCategoryActivity::class.java)
+                    intent.putExtra(TypeCategoryActivity.EXTRA_ID, category.typeCategory)
                     itemView.context.startActivity(intent)
                 }
             }

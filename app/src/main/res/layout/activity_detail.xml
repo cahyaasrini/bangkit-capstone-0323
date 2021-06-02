@@ -534,7 +534,6 @@
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="end|bottom" />
 
-
     <include
         android:id="@+id/btm_sheet"
         layout="@layout/bottom_sheet" />
