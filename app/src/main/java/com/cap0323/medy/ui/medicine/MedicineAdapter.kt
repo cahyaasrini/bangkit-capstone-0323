@@ -45,7 +45,6 @@ class MedicineAdapter(private val context: Context) :
                 R.anim.fade_scale_animation
             )
         )
-
     }
 
     override fun getItemCount(): Int = listMedicine.size

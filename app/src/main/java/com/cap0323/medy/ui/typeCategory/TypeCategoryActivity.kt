@@ -3,7 +3,7 @@ package com.cap0323.medy.ui.typeCategory
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.activity.viewModels
@@ -32,7 +32,6 @@ class TypeCategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         statusBarColor()
-
         setUpRecylerViewMain()
         setUpRecylerBottomSheet()
         displayingAllData()
@@ -44,12 +43,18 @@ class TypeCategoryActivity : AppCompatActivity() {
                 typeCategoryViewModel.getCategoryByChar(charCategory)
                 typeCategoryViewModel.indicationByChar.observe(this, {
                     adapterBottomSheetCategory.setBottomSheetAdapter(it)
-                    Log.d("Testing api indication", it.toString())
                 })
                 bottomSheetSetUp()
             }
         }
 
+        typeCategoryViewModel.noData.observe(this, {
+            if (it) {
+                dataNotFound("visible")
+            } else {
+                dataNotFound("gone")
+            }
+        })
     }
 
     private fun setUpRecylerViewMain() {
@@ -96,6 +101,13 @@ class TypeCategoryActivity : AppCompatActivity() {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.statusBarColor = this.resources.getColor(R.color.color_btn)
+        }
+    }
+
+    private fun dataNotFound(status: String) {
+        when (status) {
+            "visible" -> binding.btmSheet.noData.noDataDialog.visibility = View.VISIBLE
+            "gone" -> binding.btmSheet.noData.noDataDialog.visibility = View.GONE
         }
     }
 }

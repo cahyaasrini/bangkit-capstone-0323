@@ -11,6 +11,7 @@ import com.cap0323.medy.data.remote.response.CategoryResponse
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
 import com.cap0323.medy.databinding.ItemMedicineIndicationBinding
+import com.cap0323.medy.ui.detail.DetailActivity
 import com.cap0323.medy.ui.indication.IndicationActivity
 
 class BottomSheetCategoryAdapter(private val context: Context) :
@@ -46,6 +47,7 @@ class BottomSheetCategoryAdapter(private val context: Context) :
                 tvIndication.text = medicine.indication
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, IndicationActivity::class.java)
+                    intent.putExtra(IndicationActivity.EXTRA_CATEGORY, medicine.indication)
                     itemView.context.startActivity(intent)
                 }
             }

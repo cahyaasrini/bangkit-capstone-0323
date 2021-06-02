@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="300dp"
-    app:behavior_hideable="true"
-    android:orientation="vertical"
-    android:id="@+id/bottom_sheet"
     android:background="@drawable/white_background"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
@@ -23,10 +23,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/cancel_btn"
-                android:textColor="@color/white"
                 android:fontFamily="@font/avenir_bold"
                 android:padding="20sp"
                 android:text="Choose Indication"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <ImageView
@@ -39,12 +39,33 @@
                 android:src="@drawable/ic_cancel" />
         </RelativeLayout>
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_btm_sheet"
-        android:orientation="vertical"
-        android:background="@color/background"
-        android:padding="10sp"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"/>
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/no_data"
+            layout="@layout/dialog_no_data_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="30dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_btm_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

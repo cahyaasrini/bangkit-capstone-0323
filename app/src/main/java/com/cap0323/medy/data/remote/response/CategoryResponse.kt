@@ -7,3 +7,4 @@ data class CategoryResponse(
     val indication: String? = null,
 )
 
+
