@@ -45,7 +45,9 @@ class DetailActivity : AppCompatActivity() {
             if (it != null) {
                 Log.d("data yang masuk", it.toString())
                 adapter.setRecommendation(it)
+                //adapter.setRecommendation(it)
                 adapterBottomSheet.setBottomSheetAdapter(it)
+                adapter.setRecommendation(it)
             }
         })
 
@@ -101,9 +103,10 @@ class DetailActivity : AppCompatActivity() {
             val categoryName = extras.getString(categoryName)
             if (idMedicine != null) {
                 detailViewModel.getDetailMedicine(idMedicine)
+                detailViewModel.getRecommendationHeroku(idMedicine)
             }
             if (categoryName != null) {
-                detailViewModel.getRecommendation(categoryName)
+//                detailViewModel.getRecommendation(categoryName)
             }
             Log.d("Testingfromhome", categoryName.toString())
         }

@@ -170,11 +170,12 @@
                 android:layout_height="31dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="6dp"
-                android:src="@drawable/date_indicator"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/category_indicator"
                 android:translationZ="20dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_medicine"
                 app:layout_constraintEnd_toEndOf="@+id/tv_medicine"
+                app:layout_constraintStart_toStartOf="@+id/tv_medicine"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -192,7 +193,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/category_image"
                 app:layout_constraintStart_toStartOf="@+id/category_image"
                 app:layout_constraintTop_toTopOf="@+id/category_image"
-                tools:text="Acne" />
+                tools:text="Skin Protectant" />
 
             <TextView
                 android:id="@+id/date_title"

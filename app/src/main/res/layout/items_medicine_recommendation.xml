@@ -45,18 +45,16 @@
 
         <ImageView
             android:id="@+id/category_image"
-            android:layout_width="60dp"
-            android:layout_height="31dp"
+            android:layout_width="0dp"
+            android:layout_height="27dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="50dp"
-            android:src="@drawable/date_indicator"
+            android:src="@drawable/category_indicator"
             app:layout_constraintBottom_toBottomOf="@+id/tv_movieImage"
             app:layout_constraintEnd_toEndOf="@+id/tv_movieImage"
-            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="@+id/tv_movieImage"
             app:layout_constraintTop_toTopOf="@+id/tv_movieImage"
-            app:layout_constraintVertical_bias="0.932"
+            app:layout_constraintVertical_bias="0.95"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -70,6 +68,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
             android:textStyle="bold"
+            android:fontFamily="@font/avenir_bold"
             app:layout_constraintEnd_toEndOf="@+id/tv_movieImage"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_movieImage"

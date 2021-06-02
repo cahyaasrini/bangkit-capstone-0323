@@ -24,7 +24,7 @@ class DetailViewModel : ViewModel() {
 
     fun getDetailMedicine(id: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getMedicineById(id)
+        val client = ApiConfig.getApiServiceHeroku().getMedicineById(id)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,
@@ -44,7 +44,28 @@ class DetailViewModel : ViewModel() {
     }
 
     fun getRecommendation(categoryName: String) {
-        val client = ApiConfig.getApiService().getRecommendation(categoryName)
+        val client = ApiConfig.getApiServiceHeroku().getRecommendation(categoryName)
+        client.enqueue(object : Callback<List<MedicineResponse>> {
+            override fun onResponse(
+                call: Call<List<MedicineResponse>>,
+                response: Response<List<MedicineResponse>>
+            ) {
+                if (response.isSuccessful) {
+                    _recommendationMedicine.value = response.body()
+                } else {
+                    Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
+                Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+    }
+
+
+    fun getRecommendationHeroku(id: String) {
+        val client = ApiConfig.getApiServiceHeroku().getRecommendationHeroKu(id)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,

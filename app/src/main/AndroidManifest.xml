@@ -13,19 +13,16 @@
         android:theme="@style/Theme.Medy">
         <activity
             android:name=".ui.detail.DetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".ui.medicine.MedicineActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.indication.IndicationActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".ui.typeselection.TypeSelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -44,4 +41,5 @@
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
+
 </manifest>

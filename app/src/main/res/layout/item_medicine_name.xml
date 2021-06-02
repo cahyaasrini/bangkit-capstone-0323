@@ -47,11 +47,10 @@
             android:layout_height="31dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="36dp"
-            android:src="@drawable/date_indicator"
+            android:src="@drawable/category_indicator"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/image_brand"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/image_brand"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.921"
             tools:ignore="ContentDescription" />

@@ -38,7 +38,7 @@ class MedicineViewModel() : ViewModel() {
     fun getMedicineByName(name: String) {
         _isLoading.value = true
         _noData.value = false
-        val client = ApiConfig.getApiService().getMedicineByName(name)
+        val client = ApiConfig.getApiServiceHeroku().getMedicineByName(name)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,
@@ -67,7 +67,7 @@ class MedicineViewModel() : ViewModel() {
     fun getAllMedicine(all: String) {
         _isLoading.value = true
         _noData.value = false
-        val client = ApiConfig.getApiService().getAllMedicine(all)
+        val client = ApiConfig.getApiServiceHeroku().getAllMedicine(all)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,

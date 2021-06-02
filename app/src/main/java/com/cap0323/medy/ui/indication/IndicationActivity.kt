@@ -2,7 +2,6 @@ package com.cap0323.medy.ui.indication
 
 import android.app.SearchManager
 import android.content.Context
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -15,14 +14,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityIndicationBinding
-import com.cap0323.medy.ui.detail.DetailActivity
-import com.cap0323.medy.ui.detail.DetailAdapter
-import com.cap0323.medy.ui.medicine.MedicineAdapter
-import com.cap0323.medy.ui.typeCategory.TypeCategoryActivity
 
 class IndicationActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         const val EXTRA_CATEGORY = "extra_category"
     }
 

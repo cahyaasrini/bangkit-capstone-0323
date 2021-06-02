@@ -14,7 +14,6 @@ class TypeCategoryAdapter(private val context: Context) : RecyclerView.Adapter<T
 
     private val listCategory = ArrayList<TypeCategoryEntity>()
 
-
     fun setCategory(category: List<TypeCategoryEntity>) {
         this.listCategory.clear()
         this.listCategory.addAll(category)
