@@ -38,5 +38,9 @@
             android:name=".ui.opening.MainActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".ui.typeCategory.TypeCategoryActivity"
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package com.cap0323.medy.ui.detail
+package com.cap0323.medy.ui.typeCategory
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ItemsMedicineRecommendationBinding
+import com.cap0323.medy.ui.detail.DetailActivity
 
 class BottomSheetAdapter(private val context: Context) :
     RecyclerView.Adapter<BottomSheetAdapter.DetailViewHolder>() {
