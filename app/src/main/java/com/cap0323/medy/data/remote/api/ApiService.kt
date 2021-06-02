@@ -1,7 +1,6 @@
 package com.cap0323.medy.data.remote.api
 
 import com.cap0323.medy.data.remote.response.CategoryResponse
-import com.cap0323.medy.data.remote.response.CategoryResponseItem
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -28,13 +27,9 @@ interface ApiService {
         @Path("category") category: String
     ): Call<List<MedicineResponse>>
 
-    @GET("keywords/{all}")
-    fun getAllCategory(
-        @Path("all") all: String
-    ): Call<List<CategoryResponse>>
 
-    @GET("keywords/{q}")
-    fun getCategoryByAbjad(
-        @Path("q") q: String
-    ): Call<List<CategoryResponseItem>>
+    @GET("keywords/{keyword}")
+    fun getIndicationByChar(
+        @Path("keyword") keyword: String
+    ): Call<List<CategoryResponse>>
 }
