@@ -1,5 +1,6 @@
 package com.cap0323.medy.ui.detail
 
+import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Build
@@ -9,6 +10,7 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
@@ -114,8 +116,12 @@ class DetailActivity : AppCompatActivity() {
                 LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = DetailAdapter(this@DetailActivity)
 
-            btmSheet.rvBtmSheet.layoutManager =
-                LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
+                binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 2)
+            } else {
+                binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 3)
+            }
+            binding.btmSheet.rvBtmSheet.setHasFixedSize(true)
             adapterBottomSheet = BottomSheetAdapter(this@DetailActivity)
 
             rvDetailMedicine.adapter = adapter
