@@ -25,6 +25,4 @@ interface ApiService {
     fun getRecommendation(
         @Path("category") category: String
     ): Call<List<MedicineResponse>>
-
-
 }

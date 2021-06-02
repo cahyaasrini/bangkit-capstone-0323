@@ -77,9 +77,9 @@
 
                     <Button
                         android:id="@+id/btn_type_indication"
-                        android:layout_width="match_parent"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:background="@color/color_btn"
+                        android:background="@drawable/bg_btn_primary"
                         android:text="@string/indication"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
@@ -115,9 +115,9 @@
 
                     <Button
                         android:id="@+id/btn_type_med"
-                        android:layout_width="match_parent"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:background="@color/color_btn"
+                        android:background="@drawable/bg_btn_primary"
                         android:text="@string/medicine"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />

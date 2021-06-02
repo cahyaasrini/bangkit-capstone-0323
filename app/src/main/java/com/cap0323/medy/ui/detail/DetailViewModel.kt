@@ -37,7 +37,6 @@ class DetailViewModel : ViewModel() {
                     Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
                 }
             }
-
             override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
                 Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
             }
@@ -45,14 +44,12 @@ class DetailViewModel : ViewModel() {
     }
 
     fun getRecommendation(categoryName: String) {
-        _isLoading.value = true
         val client = ApiConfig.getApiService().getRecommendation(categoryName)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,
                 response: Response<List<MedicineResponse>>
             ) {
-                _isLoading.value = false
                 if (response.isSuccessful) {
                     _recommendationMedicine.value = response.body()
                 } else {

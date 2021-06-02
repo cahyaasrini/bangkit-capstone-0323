@@ -10,4 +10,5 @@
     <string name="image">Image Medicine</string>
     <string name="image_medicine_recommendation">Image Medicine Recommendation</string>
     <string name="dataNotFound">Currently the data you are looking for is not found !</string>
+    <string name="loading">Loading...</string>
 </resources>

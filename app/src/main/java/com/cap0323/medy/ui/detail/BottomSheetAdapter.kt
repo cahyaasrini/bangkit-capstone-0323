@@ -10,11 +10,11 @@ import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ItemsMedicineRecommendationBinding
 
-class DetailAdapter(private val context: Context) :
-    RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
+class BottomSheetAdapter(private val context: Context) :
+    RecyclerView.Adapter<BottomSheetAdapter.DetailViewHolder>() {
     private val detail = ArrayList<MedicineResponse>()
 
-    fun setRecommendation(medicine: List<MedicineResponse>) {
+    fun setBottomSheetAdapter(medicine: List<MedicineResponse>) {
         this.detail.clear()
         this.detail.addAll(medicine)
         notifyDataSetChanged()

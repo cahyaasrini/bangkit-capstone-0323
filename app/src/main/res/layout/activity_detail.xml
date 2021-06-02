@@ -54,19 +54,43 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="4dp">
+
+            <!--            <com.facebook.shimmer.ShimmerFrameLayout-->
+            <!--                android:id="@+id/shimmer"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:gravity="center"-->
+            <!--                android:elevation="20dp"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:visibility="gone"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="vertical">-->
+
+            <!--                    <include layout="@layout/activity_detail_shimmer" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <ImageView
                 android:id="@+id/tv_medicine"
                 android:layout_width="145dp"
                 android:layout_height="193dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="12dp"
                 android:contentDescription="@string/app_name"
                 android:src="@color/teal_200"
                 android:translationZ="20dp"
-                android:layout_marginTop="10dp"
                 app:layout_collapseMode="pin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -81,11 +105,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginEnd="12dp"
                 android:drawablePadding="4dp"
-                android:fontFamily="@font/avenir_regular"
+                android:fontFamily="@font/avenir_bold"
                 android:gravity="center_vertical"
                 android:text="Brand Name"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/tv_medicine"
                 app:layout_constraintTop_toTopOf="@+id/tv_medicine"
@@ -96,11 +121,12 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
                 android:drawablePadding="4dp"
-                android:fontFamily="@font/avenir_bold"
+                android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
-                android:text="MD ACNE Customized Hydrating Cleanser"
-                android:textSize="16sp"
+                android:text="@string/loading"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_brandNameTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tv_brandNameTitle"
@@ -112,11 +138,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
                 android:drawablePadding="4dp"
-                android:fontFamily="@font/avenir_regular"
+                android:fontFamily="@font/avenir_bold"
                 android:gravity="center_vertical"
                 android:text="Purpose"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/tv_medicine"
                 app:layout_constraintTop_toBottomOf="@+id/tv_brandName"
@@ -126,11 +153,12 @@
                 android:id="@+id/tv_purpose"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
                 android:drawablePadding="4dp"
-                android:fontFamily="@font/avenir_bold"
+                android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
-                android:text="Clean and Clear acne triple clear exfoliating scrub"
-                android:textSize="16sp"
+                android:text="@string/loading"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_purpose_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_purpose_title"
@@ -157,7 +185,6 @@
                 android:drawablePadding="2dp"
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center"
-                android:text="Acne"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:translationZ="20dp"
@@ -189,7 +216,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36dp"
                 android:fontFamily="@font/avenir_bold"
-                android:text="2019-12-4"
+                android:text="@string/loading"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/date_title"
                 app:layout_constraintStart_toStartOf="@+id/date_title"
@@ -223,7 +250,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:justificationMode="inter_word"
-                android:text="Active ingredient Benzoyl Peroxide 10%"
+                android:text="@string/loading"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/active_ingredient_title"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -269,7 +296,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:justificationMode="inter_word"
-                android:text="Inactive ingredients Water, Cetyl Alcohol, Petrolatum, Zinc Lactate, Steareth-2, Glycerin, Potassium Cetyl Phosphate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Xanthan Gum"
+                android:text="@string/loading"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/active_ingredient_title"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -316,7 +343,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:justificationMode="inter_word"
-                android:text="Uses for the treatment of acne penetrates the pores and dries and clears acne pimples and blackheads helps to keep new acne pimples and blackheads from forming"
+                android:text="@string/loading"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/indication_title"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -362,7 +389,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:justificationMode="inter_word"
-                android:text="Uses for the treatment of acne penetrates the pores and dries and clears acne pimples and blackheads helps to keep new acne pimples and blackheads from forming"
+                android:text="@string/loading"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/dosage_administration_title"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -390,7 +417,7 @@
                 android:layout_marginEnd="12dp"
                 android:fontFamily="@font/avenir_bold"
                 android:text="Warnings"
-                android:textColor="@color/color_btn"
+                android:textColor="@color/warning"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -409,7 +436,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:justificationMode="inter_word"
-                android:text="Warnings For external use only. When using this product skin irritation and dryness is more likely to occur if you use another topical acne medication at the same time. If irritation occurs, only use one topical acne medication at a time. avoid contact with eyes. If contact occurs, flush thoroughly with water. Keep out of reach of children . If swallowed, get medical help or contact a Poison Control Center right away."
+                android:text="@string/loading"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/warning_title"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -430,23 +457,25 @@
 
             <TextView
                 android:id="@+id/recommendation"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="12dp"
                 android:fontFamily="@font/avenir_bold"
                 android:text="Similar Medicine Recommendation"
+                android:textColor="@color/color_btn"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/warning"
                 tools:text="Indication and Usage" />
 
             <TextView
                 android:id="@+id/recommendation_detail"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
@@ -454,9 +483,30 @@
                 android:text="Sorted by top 10 similar medicines"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recommendation"
                 tools:text="Indication and Usage" />
+
+            <Button
+                android:id="@+id/btn_all"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_btn_primary"
+                android:fontFamily="@font/avenir_regular"
+                android:text="see all"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/recommendation_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.975"
+                app:layout_constraintStart_toEndOf="@id/recommendation_detail"
+                app:layout_constraintTop_toTopOf="@+id/recommendation"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="see all" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_detailMedicine"
@@ -484,4 +534,8 @@
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="end|bottom" />
 
+
+    <include
+        android:id="@+id/btm_sheet"
+        layout="@layout/bottom_sheet" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
