@@ -29,37 +29,6 @@
             app:layout_constraintVertical_bias="0.0"
             tools:src="@color/teal_200" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_appname"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="start"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="12sp"-->
-<!--            android:translationZ="20dp"-->
-<!--            android:text="@string/app_name"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/category_image"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/category_image"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/category_image"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/category_image"-->
-<!--            tools:text="@string/app_name" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/category_image"-->
-<!--            android:layout_width="60dp"-->
-<!--            android:layout_height="31dp"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_marginStart="50dp"-->
-<!--            android:src="@drawable/date_indicator"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/tv_movieImage"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/tv_movieImage"-->
-<!--            app:layout_constraintHorizontal_bias="0.6"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/tv_movieImage"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/tv_movieImage"-->
-<!--            app:layout_constraintVertical_bias="0.932"-->
-<!--            tools:ignore="ContentDescription" />-->
-
         <TextView
             android:id="@+id/tv_category"
             android:layout_width="120dp"

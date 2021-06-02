@@ -60,7 +60,6 @@ class TypeCategoryActivity : AppCompatActivity() {
             } else {
                 binding.rvCategory.layoutManager = GridLayoutManager(this@TypeCategoryActivity, 4)
             }
-            binding.rvCategory.setHasFixedSize(true)
             adapter = TypeCategoryAdapter(this@TypeCategoryActivity)
             rvCategory.adapter = adapter
         }

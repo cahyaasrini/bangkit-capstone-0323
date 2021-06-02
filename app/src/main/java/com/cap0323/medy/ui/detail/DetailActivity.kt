@@ -122,13 +122,10 @@ class DetailActivity : AppCompatActivity() {
 
             adapterBottomSheet = BottomSheetAdapter(this@DetailActivity)
 
-            btmSheet.rvBtmSheet.adapter = adapter
-
-
             rvDetailMedicine.layoutManager =
                 LinearLayoutManager(this@DetailActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = DetailAdapter(this@DetailActivity)
-
+            btmSheet.rvBtmSheet.adapter = adapter
             rvDetailMedicine.adapter = adapter
         }
     }
