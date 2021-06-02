@@ -6,19 +6,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.cap0323.medy.R
+import com.cap0323.medy.data.local.entity.TypeCategoryEntity
 import com.cap0323.medy.data.remote.response.CategoryResponse
 import com.cap0323.medy.data.remote.response.CategoryResponseItem
 import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
 import com.cap0323.medy.ui.detail.DetailActivity
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class TypeCategoryAdapter(private val context: Context) :
     RecyclerView.Adapter<TypeCategoryAdapter.CategoryViewHolder>() {
-    private val listCategory = ArrayList<CategoryResponse>()
+    private val listCategory = ArrayList<TypeCategoryEntity>()
     private val listCategoryItem = ArrayList<CategoryResponseItem>()
 
-    fun setCategory(category: List<CategoryResponse>) {
+    fun setCategory(category: ArrayList<TypeCategoryEntity>) {
         this.listCategory.clear()
         this.listCategory.addAll(category)
         notifyDataSetChanged()
@@ -60,14 +63,13 @@ class TypeCategoryAdapter(private val context: Context) :
 
     class CategoryViewHolder(val binding: ItemMedicineCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(category: CategoryResponse) {
-            Log.d("Testing", category.toString())
-            with(binding) {
-                tvCategory.text = category.categoryResponse.toString()
+        fun bind(category: TypeCategoryEntity) {
+//            Log.d("Testing", category.toString())
+            binding.apply {
+                tvCategory.text = category.abjadCategory
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailActivity::class.java)
-//                    intent.putExtra(DetailActivity.idMedicine, category.id)
-//                    intent.putExtra(DetailActivity.categoryName, category.category)
+                    val intent = Intent(itemView.context, TypeCategoryActivity::class.java)
+                    intent.putExtra(TypeCategoryActivity.EXTRA_ID, category.typeCategory)
                     itemView.context.startActivity(intent)
                 }
             }

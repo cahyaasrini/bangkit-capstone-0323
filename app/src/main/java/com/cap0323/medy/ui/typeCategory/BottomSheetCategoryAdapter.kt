@@ -8,31 +8,33 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
+import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
 import com.cap0323.medy.databinding.ItemsMedicineRecommendationBinding
 import com.cap0323.medy.ui.detail.DetailActivity
+import com.cap0323.medy.ui.indication.IndicationActivity
 
-class BottomSheetAdapter(private val context: Context) :
-    RecyclerView.Adapter<BottomSheetAdapter.DetailViewHolder>() {
-    private val detail = ArrayList<MedicineResponse>()
+class BottomSheetCategoryAdapter(private val context: Context) :
+    RecyclerView.Adapter<BottomSheetCategoryAdapter.CategoryViewHolder>() {
+    private val category = ArrayList<MedicineResponse>()
 
     fun setBottomSheetAdapter(medicine: List<MedicineResponse>) {
-        this.detail.clear()
-        this.detail.addAll(medicine)
+        this.category.clear()
+        this.category.addAll(medicine)
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailViewHolder {
-        val itemsMedicineRecommendationBinding =
-            ItemsMedicineRecommendationBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+        val itemMedicineCategoryBinding =
+            ItemMedicineCategoryBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
-        return DetailViewHolder(itemsMedicineRecommendationBinding)
+        return CategoryViewHolder(itemMedicineCategoryBinding)
     }
 
-    override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
-        holder.bind(detail[position])
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+        holder.bind(category[position])
         holder.binding.tvMovieImage.startAnimation(
             AnimationUtils.loadAnimation(
                 context,
@@ -41,19 +43,17 @@ class BottomSheetAdapter(private val context: Context) :
         )
     }
 
-    override fun getItemCount(): Int = detail.size
+    override fun getItemCount(): Int = category.size
 
-    class DetailViewHolder(val binding: ItemsMedicineRecommendationBinding) :
+    class CategoryViewHolder(val binding: ItemMedicineCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(medicine: MedicineResponse) {
             binding.apply {
-                tvBrandName.text = medicine.brandName
                 tvCategory.text = medicine.category
-                tvDate.text = medicine.effectiveTime
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailActivity::class.java)
-                    intent.putExtra(DetailActivity.idMedicine, medicine.id)
-                    intent.putExtra(DetailActivity.categoryName, medicine.category)
+                    val intent = Intent(itemView.context, IndicationActivity::class.java)
+//                    intent.putExtra(IndicationActivity.idMedicine, medicine.id)
+//                    intent.putExtra(IndicationActivity.categoryName, medicine.category)
                     itemView.context.startActivity(intent)
                 }
             }

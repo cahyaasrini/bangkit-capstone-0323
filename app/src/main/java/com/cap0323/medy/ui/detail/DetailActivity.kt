@@ -15,13 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ActivityDetailBinding
-import com.cap0323.medy.ui.typeCategory.BottomSheetAdapter
+import com.cap0323.medy.ui.typeCategory.BottomSheetCategoryAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var adapter: DetailAdapter
-    private lateinit var adapterBottomSheet: BottomSheetAdapter
+    private lateinit var adapterBottomSheet: BottomSheetCategoryAdapter
     private val detailViewModel: DetailViewModel by viewModels()
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
 
@@ -123,7 +123,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 3)
             }
             binding.btmSheet.rvBtmSheet.setHasFixedSize(true)
-            adapterBottomSheet = BottomSheetAdapter(this@DetailActivity)
+            adapterBottomSheet = BottomSheetCategoryAdapter(this@DetailActivity)
 
             rvDetailMedicine.adapter = adapter
             btmSheet.rvBtmSheet.adapter = adapter
