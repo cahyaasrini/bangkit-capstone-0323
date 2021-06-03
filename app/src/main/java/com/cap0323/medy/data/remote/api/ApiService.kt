@@ -27,7 +27,8 @@ interface ApiService {
         @Path("category") category: String
     ): Call<List<MedicineResponse>>
 
-    @GET("recommend/{id}")
+    // berdasarkan id
+    @GET("recommend1/{id}")
     fun getRecommendationHeroKu(
         @Path("id") id: String
     ): Call<List<MedicineResponse>>

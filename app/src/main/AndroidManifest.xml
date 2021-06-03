@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Medy">
+        <activity android:name=".ui.typeCategory.CategoryActivity"></activity>
         <activity
             android:name=".ui.detail.DetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.medicine.MedicineActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.indication.IndicationActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".ui.typeselection.TypeSelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -38,8 +39,7 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".ui.typeCategory.TypeCategoryActivity"
-            android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:noHistory="true" />
     </application>
 
 </manifest>
