@@ -4,14 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.CategoryResponse
-import com.cap0323.medy.data.remote.response.MedicineResponse
-import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
 import com.cap0323.medy.databinding.ItemMedicineIndicationBinding
-import com.cap0323.medy.ui.detail.DetailActivity
 import com.cap0323.medy.ui.indication.IndicationActivity
 
 class BottomSheetCategoryAdapter(private val context: Context) :

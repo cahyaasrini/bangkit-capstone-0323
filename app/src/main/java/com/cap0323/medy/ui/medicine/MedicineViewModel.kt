@@ -19,7 +19,6 @@ class MedicineViewModel() : ViewModel() {
     private val _medicineList = MutableLiveData<List<MedicineResponse>>()
     val medicineList: LiveData<List<MedicineResponse>> = _medicineList
 
-
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 

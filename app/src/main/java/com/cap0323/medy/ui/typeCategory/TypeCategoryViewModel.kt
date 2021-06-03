@@ -66,5 +66,5 @@ class TypeCategoryViewModel() : ViewModel() {
         })
     }
 
-    fun getAllCategory() : ArrayList<TypeCategoryEntity> = DummyData.getTypeCategory()
+    fun getAllCategory(): ArrayList<TypeCategoryEntity> = DummyData.getTypeCategory()
 }

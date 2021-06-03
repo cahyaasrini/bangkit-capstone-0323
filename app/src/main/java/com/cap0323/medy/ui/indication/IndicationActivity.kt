@@ -1,16 +1,15 @@
 package com.cap0323.medy.ui.indication
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityIndicationBinding
@@ -31,6 +30,11 @@ class IndicationActivity : AppCompatActivity() {
         setContentView(binding.root)
         statusBarColor()
         setUpRecylerView()
+
+        supportActionBar?.apply {
+            title = "Top 10 recommendation"
+        }
+
 
         indicationViewModel.getQuery("")
         indicationViewModel.getQueryLive.observe(this, {
@@ -70,48 +74,23 @@ class IndicationActivity : AppCompatActivity() {
                 dataNotFound("gone")
             }
         })
-
-        binding.noData.btnOk.setOnClickListener {
-            displayingAllData()
-            dataNotFound("gone")
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.option_menu, menu)
-
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = resources.getString(R.string.search_hint)
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                indicationViewModel.getMedicineByIndication(query)
-                indicationViewModel.getQuery(query)
-                indicationViewModel.medicineListByIndication.observe(
-                    this@IndicationActivity,
-                    { it ->
-                        if (it.isNotEmpty()) {
-                            adapter.setMedicine(it)
-                        } else {
-                            binding.rvMedicine.visibility = View.GONE
-                        }
-                    })
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                if (newText.isEmpty()) {
-                    displayingAllData()
-                    dataNotFound("gone")
-                }
-                return true
-            }
-        })
+        inflater.inflate(R.menu.option_menu_indication, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.info -> Toast.makeText(
+                this@IndicationActivity,
+                "Feature is available soon !",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun displayingAllData() {

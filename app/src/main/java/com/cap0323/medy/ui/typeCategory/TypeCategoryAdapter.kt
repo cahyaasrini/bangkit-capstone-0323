@@ -10,7 +10,8 @@ import com.cap0323.medy.R
 import com.cap0323.medy.data.local.entity.TypeCategoryEntity
 import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
 
-class TypeCategoryAdapter(private val context: Context) : RecyclerView.Adapter<TypeCategoryAdapter.CategoryViewHolder>() {
+class TypeCategoryAdapter(private val context: Context) :
+    RecyclerView.Adapter<TypeCategoryAdapter.CategoryViewHolder>() {
 
     private val listCategory = ArrayList<TypeCategoryEntity>()
 

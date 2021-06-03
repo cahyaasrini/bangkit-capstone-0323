@@ -37,6 +37,7 @@ class DetailViewModel : ViewModel() {
                     Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
                 }
             }
+
             override fun onFailure(call: Call<List<MedicineResponse>>, t: Throwable) {
                 Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
             }

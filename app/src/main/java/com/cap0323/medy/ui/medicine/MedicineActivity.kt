@@ -2,11 +2,12 @@ package com.cap0323.medy.ui.medicine
 
 import android.app.SearchManager
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -25,6 +26,10 @@ class MedicineActivity : AppCompatActivity() {
         setContentView(binding.root)
         statusBarColor()
         setUpRecylerView()
+
+        supportActionBar?.apply {
+            title = "Medicines List"
+        }
 
         medicineViewModel.getQuery("")
         medicineViewModel.getQueryLive.observe(this, {
@@ -95,7 +100,7 @@ class MedicineActivity : AppCompatActivity() {
                 medicineViewModel.getQuery(query)
                 medicineViewModel.medicineListByName.observe(
                     this@MedicineActivity,
-                    { it ->
+                    {
                         if (it.isNotEmpty()) {
                             adapter.setMedicine(it)
                         } else {
@@ -116,6 +121,19 @@ class MedicineActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.info -> {
+                Toast.makeText(
+                    this@MedicineActivity,
+                    "Feature is available soon !",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun displayingAllData() {
         medicineViewModel.getAllMedicine("all")
         medicineViewModel.medicineList.observe(this, { med ->
@@ -131,11 +149,9 @@ class MedicineActivity : AppCompatActivity() {
     }
 
     private fun statusBarColor() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            val window = this.window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = this.resources.getColor(R.color.color_btn)
-        }
+        val window = this.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = this.resources.getColor(R.color.color_btn)
     }
 }

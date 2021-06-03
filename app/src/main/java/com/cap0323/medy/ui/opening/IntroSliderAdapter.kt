@@ -16,7 +16,6 @@ class IntroSliderAdapter(private val introSlider: List<IntroSliderData>) :
                 tvTitle.text = introSliderData.title
                 tvDesc.text = introSliderData.description
                 imageSlider.setAnimation(introSliderData.icon)
-
             }
         }
     }

@@ -3,11 +3,11 @@ package com.cap0323.medy.ui.detail
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ActivityDetailBinding
-import com.cap0323.medy.ui.typeCategory.BottomSheetCategoryAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class DetailActivity : AppCompatActivity() {
@@ -40,6 +39,7 @@ class DetailActivity : AppCompatActivity() {
         viewModel()
         observeDetail()
         bottomSheetSetUp()
+        collapsingToolbar()
 
         detailViewModel.recommendationMedicine.observe(this, {
             if (it != null) {
@@ -51,23 +51,14 @@ class DetailActivity : AppCompatActivity() {
             }
         })
 
-//        detailViewModel.isLoading.observe(this, {
-//            if (it) {
-//                binding.apply {
-//                    shimmer.stopShimmer()
-//                    shimmer.visibility = View.VISIBLE
-//                }
-//            } else {
-//                binding.apply {
-//                    shimmer.visibility = View.GONE
-//                    shimmer.startShimmer()
-//                }
-//            }
-//        })
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbar.navigationIcon
             ?.setColorFilter(resources.getColor(R.color.white), PorterDuff.Mode.SRC_ATOP)
+
+        binding.btnFavorite.setOnClickListener {
+            Toast.makeText(this@DetailActivity, "Feature is available soon !", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     private fun setupBackButton() {
@@ -108,7 +99,6 @@ class DetailActivity : AppCompatActivity() {
             if (categoryName != null) {
 //                detailViewModel.getRecommendation(categoryName)
             }
-            Log.d("Testingfromhome", categoryName.toString())
         }
     }
 
@@ -117,9 +107,11 @@ class DetailActivity : AppCompatActivity() {
             val orientation = resources.configuration.orientation
 
             if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
-                binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 2)
+                binding.btmSheet.rvBtmSheet.layoutManager =
+                    GridLayoutManager(this@DetailActivity, 2)
             } else {
-                binding.btmSheet.rvBtmSheet.layoutManager = GridLayoutManager(this@DetailActivity, 3)
+                binding.btmSheet.rvBtmSheet.layoutManager =
+                    GridLayoutManager(this@DetailActivity, 3)
             }
             binding.btmSheet.rvBtmSheet.setHasFixedSize(true)
 
@@ -151,10 +143,6 @@ class DetailActivity : AppCompatActivity() {
                         indication.text = data.indicationsAndUsage
                         dosageAdministration.text = data.dosageAndAdministration
                         warning.text = data.warnings
-                        collapsingToolbar.title = getString(R.string.app_name)
-                        collapsingToolbar.setExpandedTitleTextColor(getColorStateList(R.color.white))
-                        collapsingToolbar.setCollapsedTitleTextColor(getColor(R.color.white))
-                        collapsingToolbar.setContentScrimColor(getColor(R.color.color_btn))
                     }
                 }
             }
@@ -162,11 +150,18 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun statusBarColor() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            val window = this.window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = this.resources.getColor(R.color.color_btn)
+        val window = this.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = this.resources.getColor(R.color.color_btn)
+    }
+
+    private fun collapsingToolbar() {
+        binding.apply {
+            collapsingToolbar.title = getString(R.string.detail)
+            collapsingToolbar.setExpandedTitleTextColor(getColorStateList(R.color.white))
+            collapsingToolbar.setCollapsedTitleTextColor(getColor(R.color.white))
+            collapsingToolbar.setContentScrimColor(getColor(R.color.color_btn))
         }
     }
 }

@@ -11,9 +11,8 @@ import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import com.cap0323.medy.databinding.ItemMedicineNameBinding
 import com.cap0323.medy.ui.detail.DetailActivity
-import com.cap0323.medy.ui.detail.DetailAdapter
 
-class IndicationAdapter(private val context: Context):
+class IndicationAdapter(private val context: Context) :
     RecyclerView.Adapter<IndicationAdapter.MedicineViewHolder>() {
     private val listMedicine = ArrayList<MedicineResponse>()
 

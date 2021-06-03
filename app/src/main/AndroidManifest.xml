@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Medy">
-        <activity android:name=".ui.typeCategory.CategoryActivity"></activity>
         <activity
             android:name=".ui.detail.DetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -38,8 +37,7 @@
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.typeCategory.TypeCategoryActivity"
-            android:noHistory="true" />
+            android:name=".ui.typeCategory.TypeCategoryActivity"/>
     </application>
 
 </manifest>
