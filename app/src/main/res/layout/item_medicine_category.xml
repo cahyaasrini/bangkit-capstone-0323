@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/tv_movieImage"
+            android:id="@+id/img_indication"
             android:layout_width="135dp"
             android:layout_height="150dp"
             android:contentDescription="@string/image_medicine_recommendation"
@@ -42,10 +42,10 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tv_movieImage"
+            app:layout_constraintEnd_toEndOf="@+id/img_indication"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tv_movieImage"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movieImage"
+            app:layout_constraintStart_toStartOf="@+id/img_indication"
+            app:layout_constraintTop_toBottomOf="@+id/img_indication"
             tools:text="A" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

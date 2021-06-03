@@ -33,6 +33,7 @@ class IndicationActivity : AppCompatActivity() {
 
         supportActionBar?.apply {
             title = "Top 10 recommendation"
+            setDisplayHomeAsUpEnabled(true)
         }
 
 
@@ -76,6 +77,11 @@ class IndicationActivity : AppCompatActivity() {
         })
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.option_menu_indication, menu)
@@ -116,12 +122,10 @@ class IndicationActivity : AppCompatActivity() {
     }
 
     private fun statusBarColor() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            val window = this.window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = this.resources.getColor(R.color.color_btn)
-        }
+        val window = this.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = this.resources.getColor(R.color.color_btn)
     }
 
     private fun dataNotFound(status: String) {
@@ -129,10 +133,5 @@ class IndicationActivity : AppCompatActivity() {
             "visible" -> binding.noData.noDataDialog.visibility = View.VISIBLE
             "gone" -> binding.noData.noDataDialog.visibility = View.GONE
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return super.onSupportNavigateUp()
     }
 }

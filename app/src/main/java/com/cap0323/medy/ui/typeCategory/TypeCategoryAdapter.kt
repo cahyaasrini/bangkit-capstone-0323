@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.cap0323.medy.R
 import com.cap0323.medy.data.local.entity.TypeCategoryEntity
 import com.cap0323.medy.databinding.ItemMedicineCategoryBinding
@@ -44,6 +45,12 @@ class TypeCategoryAdapter(private val context: Context) :
                 R.anim.fade_scale_animation
             )
         )
+        holder.binding.imgIndication.startAnimation(
+            AnimationUtils.loadAnimation(
+                context,
+                R.anim.fade_transition_animation
+            )
+        )
 
     }
 
@@ -54,6 +61,7 @@ class TypeCategoryAdapter(private val context: Context) :
         fun bind(category: TypeCategoryEntity) {
             binding.apply {
                 tvCategory.text = category.abjadCategory
+                Glide.with(itemView.context)
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, TypeCategoryActivity::class.java)
                     intent.putExtra(TypeCategoryActivity.EXTRA_ID, category.typeCategory)

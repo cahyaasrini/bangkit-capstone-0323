@@ -1,6 +1,7 @@
 package com.cap0323.medy.ui.typeCategory
 
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -35,8 +36,10 @@ class TypeCategoryActivity : AppCompatActivity() {
         setUpRecylerBottomSheet()
         displayingAllData()
 
+
         supportActionBar?.apply {
-            title = "Select indication by Alphabet"
+            title = "Select by Alphabet"
+            setDisplayHomeAsUpEnabled(true)
         }
 
 
@@ -77,6 +80,11 @@ class TypeCategoryActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun setUpRecylerViewMain() {

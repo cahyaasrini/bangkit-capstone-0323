@@ -29,6 +29,7 @@ class MedicineActivity : AppCompatActivity() {
 
         supportActionBar?.apply {
             title = "Medicines List"
+            setDisplayHomeAsUpEnabled(true)
         }
 
         medicineViewModel.getQuery("")
@@ -74,6 +75,11 @@ class MedicineActivity : AppCompatActivity() {
             displayingAllData()
             dataNotFound("gone")
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun setUpRecylerView() {
