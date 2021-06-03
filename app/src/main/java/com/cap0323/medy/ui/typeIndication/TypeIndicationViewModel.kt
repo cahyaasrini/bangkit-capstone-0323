@@ -36,7 +36,7 @@ class TypeIndicationViewModel() : ViewModel() {
     fun getCategoryByChar(name: String) {
         _isLoading.value = true
         _noData.value = false
-        val client = ApiConfig.getApiServiceHeroku().getIndicationByChar(name)
+        val client = ApiConfig.getApiService().getIndicationByChar(name)
         client.enqueue(object : Callback<List<IndicationResponse>> {
             override fun onResponse(
                 call: Call<List<IndicationResponse>>,

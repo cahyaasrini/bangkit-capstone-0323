@@ -24,7 +24,7 @@ class DetailViewModel : ViewModel() {
 
     fun getDetailMedicine(id: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiServiceHeroku().getMedicineById(id)
+        val client = ApiConfig.getApiService().getMedicineById(id)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,
@@ -45,7 +45,7 @@ class DetailViewModel : ViewModel() {
     }
 
     fun getRecommendation(categoryName: String) {
-        val client = ApiConfig.getApiServiceHeroku().getRecommendation(categoryName)
+        val client = ApiConfig.getApiService().getRecommendation(categoryName)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,
@@ -64,9 +64,8 @@ class DetailViewModel : ViewModel() {
         })
     }
 
-
     fun getRecommendationHeroku(id: String) {
-        val client = ApiConfig.getApiServiceHeroku().getRecommendationHeroKu(id)
+        val client = ApiConfig.getApiService().getRecommendationHeroKu(id)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,

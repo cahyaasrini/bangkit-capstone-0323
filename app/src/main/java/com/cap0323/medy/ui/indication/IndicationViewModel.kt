@@ -35,7 +35,7 @@ class IndicationViewModel : ViewModel() {
     fun getAllByCategory(name: String) {
         _isLoading.value = true
         _noData.value = false
-        val client = ApiConfig.getApiServiceHeroku().getRecommendation(name)
+        val client = ApiConfig.getApiService().getRecommendation(name)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,
