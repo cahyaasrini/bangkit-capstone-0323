@@ -56,6 +56,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:translationZ="20dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+
+                <include layout="@layout/item_medicine_indication_shimmer" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <ImageView
+            android:id="@+id/img_btm_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_btm_sheet"
             android:layout_width="match_parent"

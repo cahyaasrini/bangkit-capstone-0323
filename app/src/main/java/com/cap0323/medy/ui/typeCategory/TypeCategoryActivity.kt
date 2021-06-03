@@ -59,6 +59,24 @@ class TypeCategoryActivity : AppCompatActivity() {
                 dataNotFound("gone")
             }
         })
+
+        typeCategoryViewModel.isLoading.observe(this, {
+            if (it) {
+                binding.apply {
+                    btmSheet.rvBtmSheet.visibility = View.GONE
+                    btmSheet.shimmer.visibility = View.VISIBLE
+                    btmSheet.imgBtmSheet.visibility = View.VISIBLE
+                    btmSheet.shimmer.startShimmer()
+                }
+            } else {
+                binding.apply {
+                    btmSheet.rvBtmSheet.visibility = View.VISIBLE
+                    btmSheet.shimmer.stopShimmer()
+                    btmSheet.imgBtmSheet.visibility = View.GONE
+                    btmSheet.shimmer.visibility = View.GONE
+                }
+            }
+        })
     }
 
     private fun setUpRecylerViewMain() {
