@@ -30,7 +30,7 @@
             tools:src="@color/teal_200" />
 
         <TextView
-            android:id="@+id/tv_category"
+            android:id="@+id/tv_indication"
             android:layout_width="120dp"
             android:layout_height="70dp"
             android:layout_marginStart="6dp"
