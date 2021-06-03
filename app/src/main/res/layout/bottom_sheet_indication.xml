@@ -46,7 +46,7 @@
 
         <include
             android:id="@+id/no_data"
-            layout="@layout/dialog_no_data_category"
+            layout="@layout/dialog_no_data_indication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="30dp"

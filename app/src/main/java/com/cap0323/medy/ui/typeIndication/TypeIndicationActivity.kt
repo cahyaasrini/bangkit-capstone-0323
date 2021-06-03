@@ -1,4 +1,4 @@
-package com.cap0323.medy.ui.typeCategory
+package com.cap0323.medy.ui.typeIndication
 
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.os.Bundle
@@ -10,24 +10,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
-import com.cap0323.medy.databinding.ActivityTypeCategoryBinding
+import com.cap0323.medy.databinding.ActivityTypeIndicationBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
-
-class TypeCategoryActivity : AppCompatActivity() {
+class TypeIndicationActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_ID = "extra_id"
     }
 
-    private lateinit var binding: ActivityTypeCategoryBinding
-    private val typeCategoryViewModel: TypeCategoryViewModel by viewModels()
-    private lateinit var adapter: TypeCategoryAdapter
-    private lateinit var adapterBottomSheetCategory: BottomSheetCategoryAdapter
+    private lateinit var binding: ActivityTypeIndicationBinding
+    private val typeIndicationViewModel: TypeIndicationViewModel by viewModels()
+    private lateinit var adapter: TypeIndicationAdapter
+    private lateinit var adapterBottomSheetIndication: BottomSheetIndicationAdapter
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTypeCategoryBinding.inflate(layoutInflater)
+        binding = ActivityTypeIndicationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         statusBarColor()
@@ -44,15 +43,15 @@ class TypeCategoryActivity : AppCompatActivity() {
         if (extras != null) {
             val charCategory = extras.getString(EXTRA_ID)
             if (charCategory != null) {
-                typeCategoryViewModel.getCategoryByChar(charCategory)
-                typeCategoryViewModel.indicationByChar.observe(this, {
-                    adapterBottomSheetCategory.setBottomSheetAdapter(it)
+                typeIndicationViewModel.getCategoryByChar(charCategory)
+                typeIndicationViewModel.indicationByChar.observe(this, {
+                    adapterBottomSheetIndication.setBottomSheetAdapter(it)
                 })
                 bottomSheetSetUp()
             }
         }
 
-        typeCategoryViewModel.noData.observe(this, {
+        typeIndicationViewModel.noData.observe(this, {
             if (it) {
                 dataNotFound("visible")
             } else {
@@ -60,7 +59,7 @@ class TypeCategoryActivity : AppCompatActivity() {
             }
         })
 
-        typeCategoryViewModel.isLoading.observe(this, {
+        typeIndicationViewModel.isLoading.observe(this, {
             if (it) {
                 binding.apply {
                     btmSheet.rvBtmSheet.visibility = View.GONE
@@ -83,20 +82,20 @@ class TypeCategoryActivity : AppCompatActivity() {
         binding.apply {
             val orientation = resources.configuration.orientation
             if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
-                rvCategory.layoutManager = GridLayoutManager(this@TypeCategoryActivity, 2)
+                rvTypeIndication.layoutManager = GridLayoutManager(this@TypeIndicationActivity, 2)
             } else {
-                rvCategory.layoutManager = GridLayoutManager(this@TypeCategoryActivity, 4)
+                rvTypeIndication.layoutManager = GridLayoutManager(this@TypeIndicationActivity, 4)
             }
-            adapter = TypeCategoryAdapter(this@TypeCategoryActivity)
-            rvCategory.adapter = adapter
+            adapter = TypeIndicationAdapter(this@TypeIndicationActivity)
+            rvTypeIndication.adapter = adapter
         }
     }
 
     private fun setUpRecylerBottomSheet() {
         binding.apply {
-            btmSheet.rvBtmSheet.layoutManager = LinearLayoutManager(this@TypeCategoryActivity)
-            adapterBottomSheetCategory = BottomSheetCategoryAdapter(this@TypeCategoryActivity)
-            btmSheet.rvBtmSheet.adapter = adapterBottomSheetCategory
+            btmSheet.rvBtmSheet.layoutManager = LinearLayoutManager(this@TypeIndicationActivity)
+            adapterBottomSheetIndication = BottomSheetIndicationAdapter(this@TypeIndicationActivity)
+            btmSheet.rvBtmSheet.adapter = adapterBottomSheetIndication
         }
     }
 
@@ -114,7 +113,7 @@ class TypeCategoryActivity : AppCompatActivity() {
     }
 
     private fun displayingAllData() {
-        adapter.setCategory(typeCategoryViewModel.getAllCategory())
+        adapter.setCategory(typeIndicationViewModel.getAllIndication())
     }
 
     private fun statusBarColor() {

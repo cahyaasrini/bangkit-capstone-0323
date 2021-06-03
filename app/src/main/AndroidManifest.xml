@@ -37,7 +37,7 @@
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.typeCategory.TypeCategoryActivity"/>
+            android:name=".ui.typeIndication.TypeIndicationActivity"/>
     </application>
 
 </manifest>

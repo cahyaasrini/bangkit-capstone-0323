@@ -1,165 +1,191 @@
 package com.cap0323.medy.data.local.source
 
-import com.cap0323.medy.data.local.entity.TypeCategoryEntity
+import com.cap0323.medy.data.local.entity.TypeIndicationEntity
 
 object DummyData {
-    fun getTypeCategory(): ArrayList<TypeCategoryEntity> {
-        val list = ArrayList<TypeCategoryEntity>()
+    fun getTypeIndication(): ArrayList<TypeIndicationEntity> {
+        val list = ArrayList<TypeIndicationEntity>()
 
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "a",
-                "A"
+                "A",
+                "https://image.freepik.com/free-photo/close-up-woman-with-acne-posing_23-2148934186.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "b",
-                "B"
+                "B",
+                "https://img.freepik.com/free-photo/man-man-with-backache_144627-10045.jpg?size=338&ext=jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "c",
-                "C"
+                "C",
+                "https://image.freepik.com/free-photo/young-woman-with-neck-pain_329181-3891.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "d",
-                "D"
+                "D",
+                "https://image.freepik.com/free-photo/woman-standing-with-stomach-ache-presses-her-hand-her-stomach_1150-25996.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "e",
-                "E"
+                "E",
+                "https://image.freepik.com/free-photo/wounds-atopic-dermatitis-hands-child_261642-1903.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "f",
-                "F"
+                "F",
+                "https://image.freepik.com/free-photo/mother-checking-fever-her-daughter-bedroom_1170-2751.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "g",
-                "G"
+                "G",
+                "https://img.freepik.com/free-photo/man-stands-with-stomachache-puts-his-hand-his-stomach_1150-26050.jpg?size=338&ext=jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "h",
-                "H"
+                "H",
+                "https://image.freepik.com/free-photo/front-view-hand-holding-plastic-bottle-with-hand-sanitizer_23-2148571914.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "i",
-                "I"
+                "I",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "j",
-                "J"
+                "J",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "k",
-                "K"
+                "K",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "l",
-                "L"
+                "L",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "m",
-                "M"
+                "M",
+                "https://image.freepik.com/free-photo/woman-with-stomach-ache-menstrual-period-cramp-abdominal-pain-food-poisoning_46728-1371.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "n",
-                "N"
+                "N",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "o",
-                "O"
+                "O",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "p",
-                "P"
+                "P",
+                "https://image.freepik.com/free-photo/hand-cap-job-shipping-muscular_1368-2258.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "q",
-                "Q"
+                "Q",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "r",
-                "R"
+                "R",
+                "https://img.freepik.com/free-photo/young-woman-with-runny-nose_23-2148506027.jpg?size=338&ext=jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "s",
-                "S"
+                "S",
+                "https://img.freepik.com/free-photo/blue-splint-ankle-bandaged-leg-cast-male-patient-dark-blurred-background-sports-injury-concept_169016-7231.jpg?size=338&ext=jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "t",
-                "T"
+                "T",
+                "https://img.freepik.com/free-photo/young-man-is-having-toothache-pain-concept-young-emotional-man-human-emotions-facial-expression-concept-studio-isolated-trendy-green-color-profile_155003-25940.jpg?size=338&ext=jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "u",
-                "U"
+                "U",
+                "https://image.freepik.com/free-photo/young-woman-is-feeling-bad-toilet_85574-12731.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "v",
-                "V"
+                "V",
+                "https://image.freepik.com/free-photo/pregnant-woman-with-vomiting-upset-pregnant-woman-with-hand-forehead_1391-407.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "w",
-                "W"
+                "W",
+                "https://img.freepik.com/free-photo/smiley-elder-woman-using-serum-her-eye-wrinkles_23-2148672356.jpg?size=338&ext=jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "x",
-                "X"
+                "X",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "y",
-                "Y"
+                "Y",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         list.add(
-            TypeCategoryEntity(
+            TypeIndicationEntity(
                 "z",
-                "Z"
+                "Z",
+                "https://image.freepik.com/free-photo/temperature-measurent-thermometer-icon_53876-14660.jpg"
             )
         )
         return list

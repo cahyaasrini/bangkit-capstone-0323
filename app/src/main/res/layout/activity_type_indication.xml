@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_category"
+            android:id="@+id/rv_type_indication"
             android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,11 +21,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_medicine_category" />
+            tools:listitem="@layout/item_medicine_type_indication" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <include
         android:id="@+id/btm_sheet"
-        layout="@layout/bottom_sheet_category" />
+        layout="@layout/bottom_sheet_indication" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
