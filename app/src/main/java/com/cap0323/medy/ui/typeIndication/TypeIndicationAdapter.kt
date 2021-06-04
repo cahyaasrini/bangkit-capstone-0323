@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.cap0323.medy.R
 import com.cap0323.medy.data.local.entity.TypeIndicationEntity
 import com.cap0323.medy.databinding.ItemMedicineTypeIndicationBinding
@@ -28,7 +27,11 @@ class TypeIndicationAdapter(private val context: Context) :
         viewType: Int
     ): IndicationViewHolder {
         val itemsMedicineBinding =
-            ItemMedicineTypeIndicationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemMedicineTypeIndicationBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         return IndicationViewHolder(itemsMedicineBinding)
     }
 

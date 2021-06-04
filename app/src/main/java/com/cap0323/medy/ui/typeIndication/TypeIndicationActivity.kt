@@ -1,5 +1,6 @@
 package com.cap0323.medy.ui.typeIndication
 
+import android.content.Intent
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.os.Bundle
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityTypeIndicationBinding
+import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class TypeIndicationActivity : AppCompatActivity() {
@@ -38,7 +40,8 @@ class TypeIndicationActivity : AppCompatActivity() {
 
 
         supportActionBar?.apply {
-            title = "Select by Alphabet"
+            title = "Indication List"
+            subtitle = "Select by alphabet"
             setDisplayHomeAsUpEnabled(true)
         }
 
@@ -84,6 +87,12 @@ class TypeIndicationActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this@TypeIndicationActivity, TypeSelectionActivity::class.java)
+        startActivity(intent)
+        super.onBackPressed()
     }
 
     override fun onSupportNavigateUp(): Boolean {

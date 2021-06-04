@@ -42,7 +42,7 @@ class BottomSheetIndicationAdapter(private val context: Context) :
                 tvIndication.text = medicine.indication
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, IndicationActivity::class.java)
-                    intent.putExtra(IndicationActivity.EXTRA_CATEGORY, medicine.indication)
+                    intent.putExtra(IndicationActivity.extraCategory, medicine.indication)
                     itemView.context.startActivity(intent)
                 }
             }

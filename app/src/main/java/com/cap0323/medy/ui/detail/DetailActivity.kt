@@ -95,10 +95,9 @@ class DetailActivity : AppCompatActivity() {
             if (idMedicine != null) {
                 detailViewModel.getDetailMedicine(idMedicine)
                 detailViewModel.getRecommendationHeroku(idMedicine)
+                binding.collapsingToolbar.expandedTitleMarginBottom
             }
-            if (categoryName != null) {
-//                detailViewModel.getRecommendation(categoryName)
-            }
+
         }
     }
 

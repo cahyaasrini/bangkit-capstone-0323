@@ -23,6 +23,12 @@
             android:name=".SplashScreenActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.typeselection.TypeSelectionActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ui.typeselection.TypeSelectionActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,15 +36,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.typeselection.TypeSelectionActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
-        <activity
             android:name=".ui.opening.MainActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.typeIndication.TypeIndicationActivity"/>
+            android:name=".ui.typeIndication.TypeIndicationActivity">
+
+        </activity>
     </application>
 
 </manifest>

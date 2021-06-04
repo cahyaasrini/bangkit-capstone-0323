@@ -1,6 +1,5 @@
 package com.cap0323.medy.ui.indication
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -13,11 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityIndicationBinding
+import java.util.*
 
 class IndicationActivity : AppCompatActivity() {
 
     companion object {
-        const val EXTRA_CATEGORY = "extra_category"
+        const val extraCategory = "extra_category"
     }
 
     private lateinit var binding: ActivityIndicationBinding
@@ -102,7 +102,7 @@ class IndicationActivity : AppCompatActivity() {
     private fun displayingAllData() {
         val extras = intent.extras
         if (extras != null) {
-            val category = extras.getString(EXTRA_CATEGORY)
+            val category = extras.getString(extraCategory)
             if (category != null) {
                 indicationViewModel.getAllByCategory(category)
                 indicationViewModel.allByCategory.observe(this, {
@@ -110,6 +110,12 @@ class IndicationActivity : AppCompatActivity() {
                     Log.d("Testing api indication", it.toString())
                 })
             }
+            supportActionBar?.apply {
+                title = "Top 10 Recommendation"
+                subtitle = "of ${category?.capitalize(Locale.ROOT)}"
+                setDisplayHomeAsUpEnabled(true)
+            }
+
         }
     }
 
