@@ -2,6 +2,7 @@ package com.cap0323.medy.ui.medicine
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +15,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityMedicineBinding
+import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 
 class MedicineActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMedicineBinding
@@ -75,6 +77,13 @@ class MedicineActivity : AppCompatActivity() {
             displayingAllData()
             dataNotFound("gone")
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this@MedicineActivity, TypeSelectionActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
+        super.onBackPressed()
     }
 
     override fun onSupportNavigateUp(): Boolean {

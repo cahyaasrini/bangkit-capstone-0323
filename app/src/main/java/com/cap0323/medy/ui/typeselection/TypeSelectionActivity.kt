@@ -33,6 +33,11 @@ class TypeSelectionActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
+    }
+
     private fun statusBarColor() {
         if (Build.VERSION.SDK_INT >= 21) {
             val window = this.window

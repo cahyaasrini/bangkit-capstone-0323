@@ -2,7 +2,6 @@ package com.cap0323.medy.ui.typeIndication
 
 import android.content.Intent
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -91,7 +90,9 @@ class TypeIndicationActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val intent = Intent(this@TypeIndicationActivity, TypeSelectionActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
+        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
         super.onBackPressed()
     }
 

@@ -126,8 +126,6 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:text="@string/loading"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_brandNameTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tv_brandNameTitle"
                 tools:text="MD ACNE Customized Hydrating Cleanser" />
@@ -158,8 +156,6 @@
                 android:fontFamily="@font/avenir_regular"
                 android:gravity="center_vertical"
                 android:text="@string/loading"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_purpose_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_purpose_title"
                 tools:text="MD ACNE Customized Hydrating Cleanser" />
