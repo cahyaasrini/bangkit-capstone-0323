@@ -81,6 +81,7 @@ class MedicineActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val intent = Intent(this@MedicineActivity, TypeSelectionActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
         super.onBackPressed()
