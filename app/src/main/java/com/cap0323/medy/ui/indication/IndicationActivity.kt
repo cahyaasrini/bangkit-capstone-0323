@@ -82,23 +82,6 @@ class IndicationActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.option_menu_indication, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.info -> Toast.makeText(
-                this@IndicationActivity,
-                "Feature is available soon !",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
     private fun displayingAllData() {
         val extras = intent.extras
         if (extras != null) {

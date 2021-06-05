@@ -140,11 +140,12 @@ class MedicineActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.info -> {
-                Toast.makeText(
-                    this@MedicineActivity,
-                    "Feature is available soon !",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val infoMainText = resources.getText(R.string.info_detail_medicine)
+                val mOptionDialogFragment = InformationDialogFragment(infoMainText as String)
+                mOptionDialogFragment.show(
+                    supportFragmentManager,
+                    InformationDialogFragment::class.java.simpleName
+                )
             }
         }
         return super.onOptionsItemSelected(item)

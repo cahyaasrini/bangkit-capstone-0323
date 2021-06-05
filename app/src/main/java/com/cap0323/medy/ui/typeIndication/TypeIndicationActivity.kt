@@ -3,9 +3,10 @@ package com.cap0323.medy.ui.typeIndication
 import android.content.Intent
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityTypeIndicationBinding
+import com.cap0323.medy.ui.medicine.InformationDialogFragment
 import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
@@ -100,6 +102,26 @@ class TypeIndicationActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.option_menu_indication, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.info ->{
+                val infoMainText = resources.getText(R.string.info_detail_indication)
+                val mOptionDialogFragment = InformationDialogFragment(infoMainText as String)
+                mOptionDialogFragment.show(
+                    supportFragmentManager,
+                    InformationDialogFragment::class.java.simpleName
+                )
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setUpRecylerViewMain() {

@@ -8,14 +8,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:padding="25dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="25dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_type_indication"
-            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="visible"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +24,7 @@
             tools:listitem="@layout/item_medicine_type_indication" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <include
         android:id="@+id/btm_sheet"
         layout="@layout/bottom_sheet_indication" />

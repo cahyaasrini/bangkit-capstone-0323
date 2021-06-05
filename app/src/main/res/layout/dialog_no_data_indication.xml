@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/no_data_dialog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="true"
-    app:cardUseCompatPadding="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="45dp"
+    android:orientation="vertical"
     app:cardCornerRadius="8dp"
-    android:orientation="vertical">
+    app:cardElevation="45dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenir_bold"
             android:paddingTop="24dp"
-            android:text="Data is not exists"
+            android:text="@string/data_is_not_exists"
             android:textAlignment="center"
             android:textSize="16sp" />
 
@@ -29,13 +29,13 @@
             android:id="@+id/tv_detail_alert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/avenir_regular"
             android:layout_marginStart="12dp"
-            android:textColor="@color/color_btn"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="12dp"
-            android:textStyle="bold"
-            android:text="Hold tight ! We are working on the dictionaries"
-            android:textAlignment="center" />
+            android:fontFamily="@font/avenir_regular"
+            android:text="@string/hold_tight_we_are_working_on_the_dictionaries"
+            android:textAlignment="center"
+            android:textColor="@color/color_btn"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

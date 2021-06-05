@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/no_data_dialog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="true"
-    app:cardUseCompatPadding="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="45dp"
+    android:orientation="vertical"
     app:cardCornerRadius="8dp"
-    android:orientation="vertical">
+    app:cardElevation="45dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenir_bold"
             android:paddingTop="24dp"
-            android:text="Data Not Found"
+            android:text="@string/data_not_found"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -41,8 +41,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="38dp"
-            android:fontFamily="@font/avenir_regular"
             android:background="@drawable/bg_btn_primary"
-            android:text="back" />
+            android:fontFamily="@font/avenir_regular"
+            android:text="@string/back" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
