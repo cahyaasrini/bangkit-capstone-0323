@@ -34,16 +34,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Headache" />
 
-        <Button
-            android:id="@+id/btn_category"
-            android:text="@string/detail"
-            android:fontFamily="@font/avenir_medium"
-            android:textAllCaps="false"
-            android:layout_width="75dp"
-            android:layout_marginEnd="8dp"
-            android:layout_height="45dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/check"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/checked"
+            app:lottie_speed="2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

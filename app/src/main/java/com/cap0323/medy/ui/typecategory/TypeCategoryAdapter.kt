@@ -1,4 +1,4 @@
-package com.cap0323.medy.ui.typeIndication
+package com.cap0323.medy.ui.typecategory
 
 import android.content.Context
 import android.content.Intent
@@ -11,8 +11,8 @@ import com.cap0323.medy.R
 import com.cap0323.medy.data.local.entity.TypeIndicationEntity
 import com.cap0323.medy.databinding.ItemMedicineTypeIndicationBinding
 
-class TypeIndicationAdapter(private val context: Context) :
-    RecyclerView.Adapter<TypeIndicationAdapter.IndicationViewHolder>() {
+class TypeCategoryAdapter(private val context: Context) :
+    RecyclerView.Adapter<TypeCategoryAdapter.IndicationViewHolder>() {
 
     private val listIndication = ArrayList<TypeIndicationEntity>()
 
@@ -56,9 +56,9 @@ class TypeIndicationAdapter(private val context: Context) :
                 Glide.with(root)
                     .load(indication.urlImage).into(imgIndication)
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, TypeIndicationActivity::class.java)
-                    intent.putExtra(TypeIndicationActivity.EXTRA_ID, indication.typeIndication)
-                    intent.putExtra(TypeIndicationActivity.alphabet, indication.charIndication)
+                    val intent = Intent(itemView.context, TypeCategoryActivity::class.java)
+                    intent.putExtra(TypeCategoryActivity.EXTRA_ID, indication.typeIndication)
+                    intent.putExtra(TypeCategoryActivity.alphabet, indication.charIndication)
                     itemView.context.startActivity(intent)
                 }
             }

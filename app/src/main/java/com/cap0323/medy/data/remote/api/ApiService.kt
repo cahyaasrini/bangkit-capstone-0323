@@ -1,6 +1,7 @@
 package com.cap0323.medy.data.remote.api
 
-import com.cap0323.medy.data.remote.response.IndicationResponse
+import com.cap0323.medy.data.remote.response.CategoryResponse
+import com.cap0323.medy.data.remote.response.ConditionResponse
 import com.cap0323.medy.data.remote.response.MedicineResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -36,10 +37,15 @@ interface ApiService {
     @GET("keywords/{keyword}")
     fun getIndicationByChar(
         @Path("keyword") keyword: String
-    ): Call<List<IndicationResponse>>
+    ): Call<List<CategoryResponse>>
 
     @GET("masukkan end point nya")
     fun getMedicineByIndication(
         @Path("keyword") keyword: String
     ): Call<List<MedicineResponse>>
+
+    @GET("conditions/{conditions}")
+    fun getCondition(
+        @Path("conditions") conditions: String
+    ): Call<List<ConditionResponse>>
 }

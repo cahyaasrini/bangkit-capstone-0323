@@ -1,4 +1,4 @@
-package com.cap0323.medy.ui.typeIndication
+package com.cap0323.medy.ui.typecategory
 
 import android.content.Intent
 import android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -15,22 +15,23 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityTypeIndicationBinding
-import com.cap0323.medy.ui.indication.IndicationActivity
+import com.cap0323.medy.ui.detailindication.DetailIndicationFragment
+import com.cap0323.medy.ui.medicinerecommendationbyindication.RecommendationActivity
 import com.cap0323.medy.ui.medicine.InformationDialogFragment
 import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 
-class TypeIndicationActivity : AppCompatActivity() {
+class TypeCategoryActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_ID = "extra_id"
         const val alphabet = "alphabet"
     }
 
     private lateinit var binding: ActivityTypeIndicationBinding
-    private val typeIndicationViewModel: TypeIndicationViewModel by viewModels()
-    private lateinit var adapter: TypeIndicationAdapter
-    private lateinit var adapterBottomSheetIndication: BottomSheetIndicationAdapter
+    private val typeCategoryViewModel: TypeCategoryViewModel by viewModels()
+    private lateinit var adapter: TypeCategoryAdapter
+    private lateinit var adapterBottomSheetCategory: BottomSheetCategoryAdapter
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,15 +60,15 @@ class TypeIndicationActivity : AppCompatActivity() {
             binding.btmSheet.title.text = alphabet.toString()
 
             if (charCategory != null) {
-                typeIndicationViewModel.getCategoryByChar(charCategory)
-                typeIndicationViewModel.indicationByChar.observe(this, {
-                    adapterBottomSheetIndication.setBottomSheetAdapter(it)
+                typeCategoryViewModel.getCategoryByChar(charCategory)
+                typeCategoryViewModel.categoryByChar.observe(this, {
+                    adapterBottomSheetCategory.setBottomSheetAdapter(it)
                 })
                 bottomSheetSetUp()
             }
         }
 
-        typeIndicationViewModel.noData.observe(this, {
+        typeCategoryViewModel.noData.observe(this, {
             if (it) {
                 dataNotFound("visible")
             } else {
@@ -75,7 +76,7 @@ class TypeIndicationActivity : AppCompatActivity() {
             }
         })
 
-        typeIndicationViewModel.isLoading.observe(this, {
+        typeCategoryViewModel.isLoading.observe(this, {
             if (it) {
                 binding.apply {
                     btmSheet.rvBtmSheet.visibility = View.GONE
@@ -95,7 +96,7 @@ class TypeIndicationActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this@TypeIndicationActivity, TypeSelectionActivity::class.java)
+        val intent = Intent(this@TypeCategoryActivity, TypeSelectionActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
@@ -131,20 +132,20 @@ class TypeIndicationActivity : AppCompatActivity() {
         binding.apply {
             val orientation = resources.configuration.orientation
             if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
-                rvTypeIndication.layoutManager = GridLayoutManager(this@TypeIndicationActivity, 2)
+                rvTypeIndication.layoutManager = GridLayoutManager(this@TypeCategoryActivity, 2)
             } else {
-                rvTypeIndication.layoutManager = GridLayoutManager(this@TypeIndicationActivity, 4)
+                rvTypeIndication.layoutManager = GridLayoutManager(this@TypeCategoryActivity, 4)
             }
-            adapter = TypeIndicationAdapter(this@TypeIndicationActivity)
+            adapter = TypeCategoryAdapter(this@TypeCategoryActivity)
             rvTypeIndication.adapter = adapter
         }
     }
 
     private fun setUpRecyclerBottomSheet() {
         binding.apply {
-            btmSheet.rvBtmSheet.layoutManager = LinearLayoutManager(this@TypeIndicationActivity)
-            adapterBottomSheetIndication = BottomSheetIndicationAdapter(this@TypeIndicationActivity)
-            btmSheet.rvBtmSheet.adapter = adapterBottomSheetIndication
+            btmSheet.rvBtmSheet.layoutManager = LinearLayoutManager(this@TypeCategoryActivity)
+            adapterBottomSheetCategory = BottomSheetCategoryAdapter(this@TypeCategoryActivity)
+            btmSheet.rvBtmSheet.adapter = adapterBottomSheetCategory
         }
     }
 
@@ -160,44 +161,48 @@ class TypeIndicationActivity : AppCompatActivity() {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
         }
 
-        binding.btmSheet.sending.setOnClickListener {
-            val medicineBuilderWords = StringBuilder()
-            if (adapterBottomSheetIndication.selectedItems.size > 0) {
-                for (i in adapterBottomSheetIndication.selectedItems) {
-                    medicineBuilderWords.append(i)
-                    medicineBuilderWords.append(",")
-                }
-                medicineBuilderWords.deleteCharAt(medicineBuilderWords.lastIndex)
+//        binding.btmSheet.sending.setOnClickListener {
+//            val medicineBuilderWords = StringBuilder()
+//            if (adapterBottomSheetCategory.selectedItems.size > 0) {
+//                for (i in adapterBottomSheetCategory.selectedItems) {
+//                    medicineBuilderWords.append(i)
+//                    medicineBuilderWords.append(",")
+//                }
+//                medicineBuilderWords.deleteCharAt(medicineBuilderWords.lastIndex)
+//
+//                Toast.makeText(
+//                    this@TypeCategoryActivity,
+//                    medicineBuilderWords,
+//                    Toast.LENGTH_SHORT
+//                ).show()
 
-                Toast.makeText(
-                    this@TypeIndicationActivity,
-                    medicineBuilderWords,
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                val intent = Intent(this@TypeIndicationActivity, IndicationActivity::class.java)
-                intent.putExtra(IndicationActivity.extraCategory, medicineBuilderWords.toString())
-                this@TypeIndicationActivity.startActivity(intent)
-            } else {
-                Snackbar.make(window.decorView.rootView, R.string.choose, Snackbar.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
-        binding.btmSheet.delete.setOnClickListener {
-            adapterBottomSheetIndication.multiSelect = false
-            adapterBottomSheetIndication.selectedItems.clear()
-            adapterBottomSheetIndication.notifyDataSetChanged()
-            Snackbar.make(
-                window.decorView.rootView,
-                "Deleted selected items successfully",
-                Snackbar.LENGTH_SHORT
-            ).show()
-        }
+//                val intent = Intent(this@TypeCategoryActivity, RecommendationActivity::class.java)
+//                intent.putExtra(RecommendationActivity.extraCategory, medicineBuilderWords.toString())
+//                this@TypeCategoryActivity.startActivity(intent)
+//                val mOptionDialogFragment = DetailIndicationFragment()
+//                mOptionDialogFragment.show(
+//                    supportFragmentManager,
+//                    DetailIndicationFragment::class.java.simpleName
+//                )
+//            } else {
+//                Snackbar.make(window.decorView.rootView, R.string.choose, Snackbar.LENGTH_SHORT)
+//                    .show()
+//            }
+//        }
+//        binding.btmSheet.delete.setOnClickListener {
+//            adapterBottomSheetCategory.multiSelect = false
+//            adapterBottomSheetCategory.selectedItems.clear()
+//            adapterBottomSheetCategory.notifyDataSetChanged()
+//            Snackbar.make(
+//                window.decorView.rootView,
+//                "Deleted selected items successfully",
+//                Snackbar.LENGTH_SHORT
+//            ).show()
+//        }
     }
 
     private fun displayingAllData() {
-        adapter.setCategory(typeIndicationViewModel.getAllIndication())
+        adapter.setCategory(typeCategoryViewModel.getAllIndication())
     }
 
     private fun statusBarColor() {

@@ -1,12 +1,9 @@
-package com.cap0323.medy.ui.indication
+package com.cap0323.medy.ui.medicinerecommendationbyindication
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,15 +11,15 @@ import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityIndicationBinding
 import java.util.*
 
-class IndicationActivity : AppCompatActivity() {
+class RecommendationActivity : AppCompatActivity() {
 
     companion object {
         const val extraCategory = "extra_category"
     }
 
     private lateinit var binding: ActivityIndicationBinding
-    private val indicationViewModel: IndicationViewModel by viewModels()
-    private lateinit var adapter: IndicationAdapter
+    private val recommendationViewModel: RecommendationViewModel by viewModels()
+    private lateinit var adapter: RecommendationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,12 +34,12 @@ class IndicationActivity : AppCompatActivity() {
         }
 
 
-        indicationViewModel.getQuery("")
-        indicationViewModel.getQueryLive.observe(this, {
+        recommendationViewModel.getQuery("")
+        recommendationViewModel.getQueryLive.observe(this, {
             if (it != "") {
-                indicationViewModel.getMedicineByIndication(it)
-                indicationViewModel.medicineListByIndication.observe(
-                    this@IndicationActivity,
+                recommendationViewModel.getMedicineByIndication(it)
+                recommendationViewModel.medicineListByIndication.observe(
+                    this@RecommendationActivity,
                     { medicine ->
                         adapter.setMedicine(medicine)
                     })
@@ -51,7 +48,7 @@ class IndicationActivity : AppCompatActivity() {
             }
         })
 
-        indicationViewModel.isLoading.observe(this, {
+        recommendationViewModel.isLoading.observe(this, {
             if (it) {
                 binding.apply {
                     rvMedicine.visibility = View.GONE
@@ -67,7 +64,7 @@ class IndicationActivity : AppCompatActivity() {
             }
         })
 
-        indicationViewModel.noData.observe(this, {
+        recommendationViewModel.noData.observe(this, {
             if (it) {
                 dataNotFound("visible")
                 binding.rvMedicine.visibility = View.INVISIBLE
@@ -87,8 +84,8 @@ class IndicationActivity : AppCompatActivity() {
         if (extras != null) {
             val category = extras.getString(extraCategory)
             if (category != null) {
-                indicationViewModel.getAllByCategory(category)
-                indicationViewModel.allByCategory.observe(this, {
+                recommendationViewModel.getAllByCategory(category)
+                recommendationViewModel.allByCategory.observe(this, {
                     adapter.setMedicine(it)
                     Log.d("Testing api indication", it.toString())
                 })
@@ -104,8 +101,8 @@ class IndicationActivity : AppCompatActivity() {
 
     private fun setUpRecylerView() {
         binding.apply {
-            rvMedicine.layoutManager = LinearLayoutManager(this@IndicationActivity)
-            adapter = IndicationAdapter(this@IndicationActivity)
+            rvMedicine.layoutManager = LinearLayoutManager(this@RecommendationActivity)
+            adapter = RecommendationAdapter(this@RecommendationActivity)
             rvMedicine.adapter = adapter
         }
     }

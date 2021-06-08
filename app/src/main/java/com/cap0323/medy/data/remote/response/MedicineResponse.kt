@@ -33,7 +33,7 @@ data class MedicineResponse(
         @field:SerializedName("warnings")
         val warnings: String? = null,
 
-        @field:SerializedName("precision_score")
+        @field:SerializedName("search_precision")
         val precisionScore: String? = null
 )
 

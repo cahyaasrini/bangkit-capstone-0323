@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityTypeSelectionBinding
 import com.cap0323.medy.ui.medicine.MedicineActivity
-import com.cap0323.medy.ui.typeIndication.TypeIndicationActivity
+import com.cap0323.medy.ui.typecategory.TypeCategoryActivity
 
 class TypeSelectionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTypeSelectionBinding
@@ -26,7 +26,7 @@ class TypeSelectionActivity : AppCompatActivity() {
         }
 
         binding.btnTypeIndication.setOnClickListener {
-            Intent(applicationContext, TypeIndicationActivity::class.java).also {
+            Intent(applicationContext, TypeCategoryActivity::class.java).also {
                 startActivity(it)
                 overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
             }

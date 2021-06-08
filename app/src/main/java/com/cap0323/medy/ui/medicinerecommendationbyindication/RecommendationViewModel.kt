@@ -1,4 +1,4 @@
-package com.cap0323.medy.ui.indication
+package com.cap0323.medy.ui.medicinerecommendationbyindication
 
 import android.content.ContentValues
 import android.util.Log
@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class IndicationViewModel : ViewModel() {
+class RecommendationViewModel : ViewModel() {
     private val _allByCategory = MutableLiveData<List<MedicineResponse>>()
     val allByCategory: LiveData<List<MedicineResponse>> = _allByCategory
 

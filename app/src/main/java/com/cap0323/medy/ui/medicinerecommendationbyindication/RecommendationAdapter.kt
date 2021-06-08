@@ -1,9 +1,8 @@
-package com.cap0323.medy.ui.indication
+package com.cap0323.medy.ui.medicinerecommendationbyindication
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -15,8 +14,8 @@ import com.cap0323.medy.ui.detail.DetailActivity
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class IndicationAdapter(private val context: Context) :
-    RecyclerView.Adapter<IndicationAdapter.MedicineViewHolder>() {
+class RecommendationAdapter(private val context: Context) :
+    RecyclerView.Adapter<RecommendationAdapter.MedicineViewHolder>() {
     private val listMedicine = ArrayList<MedicineResponse>()
 
     fun setMedicine(medicine: List<MedicineResponse>) {
