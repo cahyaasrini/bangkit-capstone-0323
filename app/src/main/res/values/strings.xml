@@ -24,7 +24,6 @@
     <string name="similar_medicine_recommendation">Similar Medicine Recommendation</string>
     <string name="sorted_by_top_10_similar_medicines">Sorted by top 10 similar medicines</string>
     <string name="see_all">see all</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="similar_medicines">Similar Medicines</string>
     <string name="data_not_found">Data Not Found</string>
@@ -34,4 +33,5 @@
     <string name="info">Info</string>
     <string name="info_detail_medicine">This application uses FDA data that have no images url at all, for this app operation, you solely need to input medicines name afterward the app will provide you Top 10 recommended medicines</string>
     <string name="info_detail_indication">This application uses FDA data that have no images url at all, for this app operation, you solely need to select what indication you are facing, afterwards the system will provide you Top 10 recommended medicines</string>
+    <string name="precision">Precision score : </string>
 </resources>

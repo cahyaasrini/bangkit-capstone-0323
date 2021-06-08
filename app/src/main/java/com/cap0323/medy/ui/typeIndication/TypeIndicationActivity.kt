@@ -8,12 +8,14 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityTypeIndicationBinding
+import com.cap0323.medy.ui.indication.IndicationActivity
 import com.cap0323.medy.ui.medicine.InformationDialogFragment
 import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -36,8 +38,8 @@ class TypeIndicationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         statusBarColor()
-        setUpRecylerViewMain()
-        setUpRecylerBottomSheet()
+        setUpRecyclerViewMain()
+        setUpRecyclerBottomSheet()
         displayingAllData()
 
 
@@ -112,7 +114,7 @@ class TypeIndicationActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.info ->{
+            R.id.info -> {
                 val infoMainText = resources.getText(R.string.info_detail_indication)
                 val mOptionDialogFragment = InformationDialogFragment(infoMainText as String)
                 mOptionDialogFragment.show(
@@ -124,7 +126,7 @@ class TypeIndicationActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setUpRecylerViewMain() {
+    private fun setUpRecyclerViewMain() {
         binding.apply {
             val orientation = resources.configuration.orientation
             if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
@@ -137,7 +139,7 @@ class TypeIndicationActivity : AppCompatActivity() {
         }
     }
 
-    private fun setUpRecylerBottomSheet() {
+    private fun setUpRecyclerBottomSheet() {
         binding.apply {
             btmSheet.rvBtmSheet.layoutManager = LinearLayoutManager(this@TypeIndicationActivity)
             adapterBottomSheetIndication = BottomSheetIndicationAdapter(this@TypeIndicationActivity)
@@ -155,6 +157,41 @@ class TypeIndicationActivity : AppCompatActivity() {
 
         binding.btmSheet.cancelBtn.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
+        binding.btmSheet.sending.setOnClickListener {
+            val medicineBuilderWords = StringBuilder()
+            if (adapterBottomSheetIndication.selectedItems.size > 0) {
+                for (i in adapterBottomSheetIndication.selectedItems) {
+                    medicineBuilderWords.append(i)
+                    medicineBuilderWords.append(",")
+                }
+                medicineBuilderWords.deleteCharAt(medicineBuilderWords.lastIndex)
+
+                Toast.makeText(
+                    this@TypeIndicationActivity,
+                    medicineBuilderWords,
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                val intent = Intent(this@TypeIndicationActivity, IndicationActivity::class.java)
+                intent.putExtra(IndicationActivity.extraCategory, medicineBuilderWords.toString())
+                this@TypeIndicationActivity.startActivity(intent)
+            } else {
+                Toast.makeText(
+                    this@TypeIndicationActivity,
+                    "You have to choose at least 1 item",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        binding.btmSheet.delete.setOnClickListener {
+            Toast.makeText(
+                this@TypeIndicationActivity,
+                "The feature is available soon",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

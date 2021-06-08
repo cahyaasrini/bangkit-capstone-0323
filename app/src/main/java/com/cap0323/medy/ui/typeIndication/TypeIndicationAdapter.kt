@@ -65,7 +65,6 @@ class TypeIndicationAdapter(private val context: Context) :
                     val intent = Intent(itemView.context, TypeIndicationActivity::class.java)
                     intent.putExtra(TypeIndicationActivity.EXTRA_ID, indication.typeIndication)
                     intent.putExtra(TypeIndicationActivity.alphabet, indication.charIndication)
-//                    intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
                     itemView.context.startActivity(intent)
                 }
             }

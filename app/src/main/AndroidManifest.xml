@@ -18,20 +18,14 @@
             android:name=".ui.medicine.MedicineActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".ui.indication.IndicationActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name=".ui.typeselection.TypeSelectionActivity"
             android:launchMode="singleTop"
@@ -43,9 +37,12 @@
             android:name=".ui.opening.MainActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".ui.typeIndication.TypeIndicationActivity">
+        <activity android:name=".ui.typeIndication.TypeIndicationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

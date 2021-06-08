@@ -75,7 +75,7 @@ object DummyData {
             TypeIndicationEntity(
                 "j",
                 "J",
-                "https://blog-images.pharmeasy.in/2021/01/06152314/2.jpg"
+                "https://media.sciencephoto.com/image/c0448031/800wm/C0448031-Severe_scleral_icterus_or_jaundice.jpg"
             )
         )
         list.add(

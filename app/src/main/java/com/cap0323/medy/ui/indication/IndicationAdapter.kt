@@ -1,5 +1,6 @@
 package com.cap0323.medy.ui.indication
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -9,8 +10,10 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.MedicineResponse
-import com.cap0323.medy.databinding.ItemMedicineNameBinding
+import com.cap0323.medy.databinding.ItemMedicineByIndicationBinding
 import com.cap0323.medy.ui.detail.DetailActivity
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class IndicationAdapter(private val context: Context) :
     RecyclerView.Adapter<IndicationAdapter.MedicineViewHolder>() {
@@ -27,7 +30,11 @@ class IndicationAdapter(private val context: Context) :
         viewType: Int
     ): MedicineViewHolder {
         val itemsMedicineBinding =
-            ItemMedicineNameBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemMedicineByIndicationBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         return MedicineViewHolder(itemsMedicineBinding)
     }
 
@@ -49,14 +56,17 @@ class IndicationAdapter(private val context: Context) :
 
     override fun getItemCount(): Int = listMedicine.size
 
-    class MedicineViewHolder(val binding: ItemMedicineNameBinding) :
+    class MedicineViewHolder(val binding: ItemMedicineByIndicationBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(medicine: MedicineResponse) {
-            Log.d("Testing", medicine.toString())
+            val df = DecimalFormat("#.###")
+            df.roundingMode = RoundingMode.CEILING
             with(binding) {
                 tvShowName.text = medicine.brandName
                 tvEffectiveTime.text = medicine.effectiveTime
                 category.text = medicine.category
+                tvPrecisionDetail.text = df.format(medicine.precisionScore?.toFloat())
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.idMedicine, medicine.id)

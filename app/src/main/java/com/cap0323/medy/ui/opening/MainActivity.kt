@@ -121,11 +121,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun statusBarColor() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            val window = this.window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = this.resources.getColor(R.color.color_btn)
-        }
+        val window = this.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = this.resources.getColor(R.color.color_btn)
     }
 }

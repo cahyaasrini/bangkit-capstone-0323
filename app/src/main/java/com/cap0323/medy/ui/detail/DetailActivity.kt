@@ -106,13 +106,13 @@ class DetailActivity : AppCompatActivity() {
             val orientation = resources.configuration.orientation
 
             if (orientation == SCREEN_ORIENTATION_PORTRAIT) {
-                binding.btmSheet.rvBtmSheet.layoutManager =
+                btmSheet.rvBtmSheet.layoutManager =
                     GridLayoutManager(this@DetailActivity, 2)
             } else {
-                binding.btmSheet.rvBtmSheet.layoutManager =
+                btmSheet.rvBtmSheet.layoutManager =
                     GridLayoutManager(this@DetailActivity, 3)
             }
-            binding.btmSheet.rvBtmSheet.setHasFixedSize(true)
+            btmSheet.rvBtmSheet.setHasFixedSize(true)
 
             adapterBottomSheet = BottomSheetAdapter(this@DetailActivity)
 

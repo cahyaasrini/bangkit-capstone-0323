@@ -17,24 +17,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
-            <include layout="@layout/shimmer_item_medicine_name" />
-
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
+            <include layout="@layout/item_medicine_by_indication_shimmer" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
