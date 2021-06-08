@@ -26,18 +26,18 @@
             android:name=".SplashScreenActivity"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.typeselection.TypeSelectionActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".ui.typeselection.TypeSelectionActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.opening.MainActivity"

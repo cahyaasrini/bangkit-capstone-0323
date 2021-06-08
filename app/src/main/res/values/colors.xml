@@ -19,4 +19,5 @@
     <color name="primary">#E2919191</color>
     <color name="background">#2DB6B6B6</color>
     <color name="warning">#FF8F00</color>
+    <color name="main">#fafafa</color>
 </resources>
