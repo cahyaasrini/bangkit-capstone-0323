@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.cap0323.medy.R
 import com.cap0323.medy.data.remote.response.IndicationResponse
 import com.cap0323.medy.databinding.ItemMedicineIndicationBinding
 
@@ -13,7 +15,7 @@ class BottomSheetIndicationAdapter(
 ) :
     RecyclerView.Adapter<BottomSheetIndicationAdapter.IndicationViewHolder>() {
 
-    private var multiSelect = false
+    var multiSelect = false
 
     var selectedItems = arrayListOf<String>()
 
@@ -38,6 +40,13 @@ class BottomSheetIndicationAdapter(
     override fun onBindViewHolder(holder: IndicationViewHolder, position: Int) {
         val currentData = category[position].indication.toString()
         holder.bind(category[position])
+        holder.itemView.startAnimation(
+            AnimationUtils.loadAnimation(
+                context,
+                R.anim.fade_scale_animation
+            )
+        )
+
         if (selectedItems.contains(currentData)) {
             holder.binding.check.visibility = View.VISIBLE
         } else {

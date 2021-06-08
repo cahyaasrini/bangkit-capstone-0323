@@ -37,16 +37,10 @@ class TypeIndicationAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: IndicationViewHolder, position: Int) {
         holder.bind(listIndication[position])
-//        holder.binding.categoryImage.startAnimation(
-//            AnimationUtils.loadAnimation(
-//                context,
-//                R.anim.fade_transition_animation
-//            )
-//        )
         holder.itemView.startAnimation(
             AnimationUtils.loadAnimation(
                 context,
-                R.anim.fade_scale_animation
+                R.anim.open_center
             )
         )
 

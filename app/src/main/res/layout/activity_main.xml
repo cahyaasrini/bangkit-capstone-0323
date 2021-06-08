@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/skip"
         android:textSize="16sp"
+        android:fontFamily="@font/avenir_medium"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.932"
@@ -22,15 +23,19 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_btn_primary"
         android:drawableEnd="@drawable/ic_next"
         android:elevation="10dp"
         android:text="@string/next"
+        android:textAllCaps="false"
+        android:fontFamily="@font/avenir_medium"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/indicatorsContainer"
@@ -38,11 +43,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_next"
-        app:layout_constraintEnd_toStartOf="@id/btn_next"
-        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_skip"
+        app:layout_constraintEnd_toStartOf="@id/tv_skip"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_next"
+        app:layout_constraintTop_toTopOf="@+id/tv_skip"
         app:layout_constraintVertical_bias="0.692" />
 
     <androidx.viewpager2.widget.ViewPager2

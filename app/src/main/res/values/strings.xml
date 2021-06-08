@@ -33,5 +33,7 @@
     <string name="info">Info</string>
     <string name="info_detail_medicine">This application uses FDA data that have no images url at all, for this app operation, you solely need to input medicines name afterward the app will provide you Top 10 recommended medicines</string>
     <string name="info_detail_indication">This application uses FDA data that have no images url at all, for this app operation, you solely need to select what indication you are facing, afterwards the system will provide you Top 10 recommended medicines</string>
-    <string name="precision">Precision score : </string>
+    <string name="precision">Search Precision : </string>
+    <string name="choose">You have to choose at least 1 item</string>
+    <string name="choose_indication">Choose Indication</string>
 </resources>

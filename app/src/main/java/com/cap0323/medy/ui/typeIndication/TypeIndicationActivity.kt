@@ -19,6 +19,7 @@ import com.cap0323.medy.ui.indication.IndicationActivity
 import com.cap0323.medy.ui.medicine.InformationDialogFragment
 import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.snackbar.Snackbar
 
 class TypeIndicationActivity : AppCompatActivity() {
     companion object {
@@ -178,19 +179,19 @@ class TypeIndicationActivity : AppCompatActivity() {
                 intent.putExtra(IndicationActivity.extraCategory, medicineBuilderWords.toString())
                 this@TypeIndicationActivity.startActivity(intent)
             } else {
-                Toast.makeText(
-                    this@TypeIndicationActivity,
-                    "You have to choose at least 1 item",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Snackbar.make(window.decorView.rootView, R.string.choose, Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
 
         binding.btmSheet.delete.setOnClickListener {
-            Toast.makeText(
-                this@TypeIndicationActivity,
-                "The feature is available soon",
-                Toast.LENGTH_SHORT
+            adapterBottomSheetIndication.multiSelect = false
+            adapterBottomSheetIndication.selectedItems.clear()
+            adapterBottomSheetIndication.notifyDataSetChanged()
+            Snackbar.make(
+                window.decorView.rootView,
+                "Deleted selected items successfully",
+                Snackbar.LENGTH_SHORT
             ).show()
         }
     }

@@ -41,7 +41,7 @@
                 android:layout_toStartOf="@id/cancel_btn"
                 android:fontFamily="@font/avenir_bold"
                 android:padding="20sp"
-                android:text="Choose Indication"
+                android:text="@string/choose_indication"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -51,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:visibility="gone"
-                android:layout_marginEnd="140sp"
+                android:visibility="visible"
+                android:layout_marginEnd="150sp"
                 android:src="@drawable/ic_baseline_delete_24" />
 
             <ImageView
@@ -62,7 +62,7 @@
                 android:layout_alignParentEnd="true"
                 android:visibility="visible"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="80sp"
+                android:layout_marginEnd="90sp"
                 android:src="@drawable/ic_baseline_send_24" />
 
             <ImageView
@@ -135,7 +135,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/app_name" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_btm_sheet"
