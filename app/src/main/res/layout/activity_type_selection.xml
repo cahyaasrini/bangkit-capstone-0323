@@ -42,7 +42,7 @@
             android:fontFamily="@font/avenir_medium"
             android:text="@string/selection_choosing"
             android:textColor="@color/white"
-            android:textSize="32sp"
+            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

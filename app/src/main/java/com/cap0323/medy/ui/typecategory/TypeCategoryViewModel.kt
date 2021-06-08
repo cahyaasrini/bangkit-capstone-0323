@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TypeCategoryViewModel() : ViewModel() {
+class TypeCategoryViewModel : ViewModel() {
 
     private val _indicationByChar = MutableLiveData<List<CategoryResponse>>()
     val categoryByChar: LiveData<List<CategoryResponse>> = _indicationByChar

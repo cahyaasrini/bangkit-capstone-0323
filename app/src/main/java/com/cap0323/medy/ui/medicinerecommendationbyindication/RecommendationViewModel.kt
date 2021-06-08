@@ -64,7 +64,7 @@ class RecommendationViewModel : ViewModel() {
     fun getMedicineByIndication(indication: String) {
         _isLoading.value = true
         _noData.value = false
-        val client = ApiConfig.getApiService().getMedicineByIndication(indication)
+        val client = ApiConfig.getApiService().getRecommendation(indication)
         client.enqueue(object : Callback<List<MedicineResponse>> {
             override fun onResponse(
                 call: Call<List<MedicineResponse>>,

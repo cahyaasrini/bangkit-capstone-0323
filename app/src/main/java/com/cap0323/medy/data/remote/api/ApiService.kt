@@ -39,11 +39,6 @@ interface ApiService {
         @Path("keyword") keyword: String
     ): Call<List<CategoryResponse>>
 
-    @GET("masukkan end point nya")
-    fun getMedicineByIndication(
-        @Path("keyword") keyword: String
-    ): Call<List<MedicineResponse>>
-
     @GET("conditions/{conditions}")
     fun getCondition(
         @Path("conditions") conditions: String

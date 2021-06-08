@@ -40,11 +40,11 @@ class TypeSelectionActivity : AppCompatActivity() {
     }
 
     private fun startingAnimation() {
-        val delayTime = 1500L
-
         val animationFromTop = AnimationUtils.loadAnimation(this, R.anim.top_animation)
-        val animationFromLeft = AnimationUtils.loadAnimation(this, R.anim.enter_from_right_type_selection)
-        val animationFromRight = AnimationUtils.loadAnimation(this, R.anim.enter_from_left_type_selection)
+        val animationFromLeft =
+            AnimationUtils.loadAnimation(this, R.anim.enter_from_right_type_selection)
+        val animationFromRight =
+            AnimationUtils.loadAnimation(this, R.anim.enter_from_left_type_selection)
 
         with(binding) {
             imageView.animation = animationFromTop

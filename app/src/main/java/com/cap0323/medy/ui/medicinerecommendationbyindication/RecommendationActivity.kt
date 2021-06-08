@@ -87,7 +87,6 @@ class RecommendationActivity : AppCompatActivity() {
                 recommendationViewModel.getAllByCategory(category)
                 recommendationViewModel.allByCategory.observe(this, {
                     adapter.setMedicine(it)
-                    Log.d("Testing api indication", it.toString())
                 })
             }
             supportActionBar?.apply {

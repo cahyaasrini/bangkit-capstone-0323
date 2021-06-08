@@ -45,7 +45,6 @@ class DetailActivity : AppCompatActivity() {
             if (it != null) {
                 Log.d("data yang masuk", it.toString())
                 adapter.setRecommendation(it)
-                //adapter.setRecommendation(it)
                 adapterBottomSheet.setBottomSheetAdapter(it)
                 adapter.setRecommendation(it)
             }

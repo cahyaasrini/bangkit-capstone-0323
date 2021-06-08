@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityDetailIndicationBinding
 import com.cap0323.medy.ui.medicinerecommendationbyindication.RecommendationActivity
-import com.cap0323.medy.ui.typecategory.TypeCategoryActivity
-import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.snackbar.Snackbar
 
 class DetailIndicationActivity : AppCompatActivity() {
@@ -95,6 +93,7 @@ class DetailIndicationActivity : AppCompatActivity() {
     }
 
     private fun action() {
+        binding.count.text = adapter.selectedItems.size.toString()
         binding.sending.setOnClickListener {
             val medicineBuilderWords = StringBuilder()
             if (adapter.selectedItems.size > 0) {
@@ -106,7 +105,8 @@ class DetailIndicationActivity : AppCompatActivity() {
 
                 Toast.makeText(
                     this@DetailIndicationActivity,
-                    medicineBuilderWords,
+                    adapter.selectedItems.size.toString(),
+//                    medicineBuilderWords,
                     Toast.LENGTH_SHORT
                 ).show()
 
@@ -122,6 +122,7 @@ class DetailIndicationActivity : AppCompatActivity() {
                     .show()
             }
         }
+
         binding.delete.setOnClickListener {
             adapter.multiSelect = false
             adapter.selectedItems.clear()
@@ -132,7 +133,7 @@ class DetailIndicationActivity : AppCompatActivity() {
                 Snackbar.LENGTH_SHORT
             ).show()
         }
-        binding.cancelBtn.setOnClickListener{
+        binding.cancelBtn.setOnClickListener {
             finish()
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
         }

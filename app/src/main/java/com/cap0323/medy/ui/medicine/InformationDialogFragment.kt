@@ -21,7 +21,7 @@ class InformationDialogFragment(private val text: String) : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply{
+        binding.apply {
             cancelBtn.setOnClickListener {
                 dialog?.cancel()
             }

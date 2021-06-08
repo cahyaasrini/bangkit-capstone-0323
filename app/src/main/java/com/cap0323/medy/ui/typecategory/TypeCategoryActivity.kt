@@ -8,19 +8,15 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cap0323.medy.R
 import com.cap0323.medy.databinding.ActivityTypeIndicationBinding
-import com.cap0323.medy.ui.detailindication.DetailIndicationFragment
-import com.cap0323.medy.ui.medicinerecommendationbyindication.RecommendationActivity
 import com.cap0323.medy.ui.medicine.InformationDialogFragment
 import com.cap0323.medy.ui.typeselection.TypeSelectionActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.snackbar.Snackbar
 
 class TypeCategoryActivity : AppCompatActivity() {
     companion object {
@@ -160,45 +156,6 @@ class TypeCategoryActivity : AppCompatActivity() {
         binding.btmSheet.cancelBtn.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
         }
-
-//        binding.btmSheet.sending.setOnClickListener {
-//            val medicineBuilderWords = StringBuilder()
-//            if (adapterBottomSheetCategory.selectedItems.size > 0) {
-//                for (i in adapterBottomSheetCategory.selectedItems) {
-//                    medicineBuilderWords.append(i)
-//                    medicineBuilderWords.append(",")
-//                }
-//                medicineBuilderWords.deleteCharAt(medicineBuilderWords.lastIndex)
-//
-//                Toast.makeText(
-//                    this@TypeCategoryActivity,
-//                    medicineBuilderWords,
-//                    Toast.LENGTH_SHORT
-//                ).show()
-
-//                val intent = Intent(this@TypeCategoryActivity, RecommendationActivity::class.java)
-//                intent.putExtra(RecommendationActivity.extraCategory, medicineBuilderWords.toString())
-//                this@TypeCategoryActivity.startActivity(intent)
-//                val mOptionDialogFragment = DetailIndicationFragment()
-//                mOptionDialogFragment.show(
-//                    supportFragmentManager,
-//                    DetailIndicationFragment::class.java.simpleName
-//                )
-//            } else {
-//                Snackbar.make(window.decorView.rootView, R.string.choose, Snackbar.LENGTH_SHORT)
-//                    .show()
-//            }
-//        }
-//        binding.btmSheet.delete.setOnClickListener {
-//            adapterBottomSheetCategory.multiSelect = false
-//            adapterBottomSheetCategory.selectedItems.clear()
-//            adapterBottomSheetCategory.notifyDataSetChanged()
-//            Snackbar.make(
-//                window.decorView.rootView,
-//                "Deleted selected items successfully",
-//                Snackbar.LENGTH_SHORT
-//            ).show()
-//        }
     }
 
     private fun displayingAllData() {

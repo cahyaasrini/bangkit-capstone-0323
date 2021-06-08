@@ -12,7 +12,7 @@ object DummyData {
             TypeIndicationEntity(
                 "a",
                 "A",
-                "https://image.freepik.com/free-photo/close-up-woman-with-acne-posing_23-2148934186.jpg"
+                "https://img.freepik.com/free-photo/blue-splint-ankle-bandaged-leg-cast-male-patient-dark-blurred-background-sports-injury-concept_169016-7231.jpg?size=338&ext=jpg"
             )
         )
         list.add(
@@ -138,7 +138,7 @@ object DummyData {
             TypeIndicationEntity(
                 "s",
                 "S",
-                "https://img.freepik.com/free-photo/blue-splint-ankle-bandaged-leg-cast-male-patient-dark-blurred-background-sports-injury-concept_169016-7231.jpg?size=338&ext=jpg"
+                "https://image.freepik.com/free-photo/close-up-woman-with-acne-posing_23-2148934186.jpg"
             )
         )
         list.add(

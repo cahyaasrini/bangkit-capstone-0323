@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MedicineViewModel() : ViewModel() {
+class MedicineViewModel : ViewModel() {
 
     private val _medicineListByName = MutableLiveData<List<MedicineResponse>>()
     val medicineListByName: LiveData<List<MedicineResponse>> = _medicineListByName
