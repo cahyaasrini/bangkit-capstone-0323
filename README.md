@@ -4,4 +4,4 @@ We want to make a medicine recommender. Currently, we use [ScispaCy](https://all
 
 ## API 
 
-We made a simple API to interact with the android app prototype. The repository is [https://github.com/cahyaasrini/medy-api](https://github.com/cahyaasrini/medy-api)
+We made a simple API to interact with the android app prototype. The repository is [here](https://github.com/cahyaasrini/medy-api)
