@@ -42,7 +42,7 @@ class TypeCategoryActivity : AppCompatActivity() {
 
 
         supportActionBar?.apply {
-            title = "Indication List"
+            title = "Category List"
             subtitle = "Select by alphabet"
             setDisplayHomeAsUpEnabled(true)
         }

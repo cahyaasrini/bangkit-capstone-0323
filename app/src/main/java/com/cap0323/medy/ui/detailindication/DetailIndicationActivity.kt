@@ -105,8 +105,7 @@ class DetailIndicationActivity : AppCompatActivity() {
 
                 Toast.makeText(
                     this@DetailIndicationActivity,
-                    adapter.selectedItems.size.toString(),
-//                    medicineBuilderWords,
+                    medicineBuilderWords,
                     Toast.LENGTH_SHORT
                 ).show()
 

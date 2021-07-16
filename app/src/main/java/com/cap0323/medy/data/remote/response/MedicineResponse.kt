@@ -34,7 +34,10 @@ data class MedicineResponse(
         val warnings: String? = null,
 
         @field:SerializedName("search_precision")
-        val precisionScore: String? = null
+        val precisionScore: String? = null,
+
+        @field:SerializedName("entities")
+        val entities: String? = null
 )
 
 

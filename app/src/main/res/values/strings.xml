@@ -17,6 +17,7 @@
     <string name="purpose">Purpose</string>
     <string name="effective_time">Effective Time</string>
     <string name="active_ingredient">Active Ingredient</string>
+    <string name="entities">Entities</string>
     <string name="inactive_ingredient">Inactive Ingredient</string>
     <string name="indication_and_usage">Indication and usage</string>
     <string name="dosage_and_administration">Dosage and Administration</string>

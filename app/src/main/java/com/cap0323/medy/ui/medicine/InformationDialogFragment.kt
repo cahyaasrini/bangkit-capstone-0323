@@ -13,7 +13,7 @@ class InformationDialogFragment(private val text: String) : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentInformationDialogBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

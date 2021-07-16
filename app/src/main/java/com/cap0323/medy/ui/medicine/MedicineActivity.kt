@@ -33,7 +33,6 @@ class MedicineActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
 
-        medicineViewModel.getQuery("")
         medicineViewModel.getQueryLive.observe(this, {
             if (it != "") {
                 medicineViewModel.getMedicineByName(it)

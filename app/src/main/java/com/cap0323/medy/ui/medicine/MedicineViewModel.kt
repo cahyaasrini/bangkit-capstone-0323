@@ -26,8 +26,16 @@ class MedicineViewModel : ViewModel() {
 
     val getQueryLive: LiveData<String> = _getQuery
 
+    init {
+        getQuery("")
+    }
+
     fun getQuery(query: String) {
-        _getQuery.postValue(query)
+        if (query != "") {
+            _getQuery.postValue(query)
+        } else {
+            _getQuery.postValue("")
+        }
     }
 
     private val _noData = MutableLiveData<Boolean>()

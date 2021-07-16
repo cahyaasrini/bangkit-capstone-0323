@@ -136,6 +136,7 @@ class DetailActivity : AppCompatActivity() {
                         tvPurpose.text = data.purpose
                         category.text = data.category
                         date.text = data.effectiveTime
+                        tagDetail.text = data.entities ?: "-"
                         activeIngredient.text = data.activeIngredient
                         inactiveIngredient.text = data.inactiveIngredient
                         indication.text = data.indicationsAndUsage
